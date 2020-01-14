@@ -1,6 +1,7 @@
 @extends('admin/admin')
 @section('content')
     <div class="row">
+    coba trus hapus
         <div class="col-12">
             <div class="card">
                 <div class="card-header">

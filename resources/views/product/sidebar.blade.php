@@ -69,44 +69,44 @@
             <!-- Nyoba Dulu -->
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{URL::to('admin')}}" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <a href="{{URL::to('admin')}}" class="nav-link">
+                <i class="fa nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <a href="{{URL::to('admin/category')}}" class="nav-link">
+                <i class="fa nav-icon"></i>
                   <p>Data Category</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{URL::to('product')}}" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <i class="fa nav-icon"></i>
                   <p>Data Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/product')}}" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <a href="{{URL::to('admin/user')}}" class="nav-link">
+                <i class="fa nav-icon"></i>
                   <p>Data User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <a href="{{URL::to('admin/whistlist')}}" class="nav-link">
+                <i class="fa nav-icon"></i>
                   <p>Wishlist</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <a href="{{URL::to('admin/order')}}" class="nav-link">
+                <i class="fa nav-icon"></i>
                   <p>Data Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                <a href="{{URL::to('admin/payment')}}" class="nav-link">
+                  <i class="fa nav-icon"></i>
                   <p>Data Payment</p>
                 </a>
               </li>

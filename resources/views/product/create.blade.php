@@ -1,4 +1,4 @@
-@extends('admin/admin')
+@extends('product/product')
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ URL::to('admin') }}" class="btn btn-outline-info">Back</a>
+                        <a href="{{ URL::to('product') }}" class="btn btn-outline-info">Back</a>
                         {{ Form::submit('Save', ['class' => 'btn btn-primary pull-right']) }}
                     </div>
                 </div>

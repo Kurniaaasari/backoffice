@@ -87,7 +87,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{URL::to('admin/product')}}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Data User</p>
                 </a>

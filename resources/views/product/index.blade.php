@@ -1,4 +1,4 @@
-@extends('admin/admin')
+@extends('product/product')
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h3 class="card-title">Data Product</h3>
                 <div class="card-tools">
-                 <a href="{{ URL::to('/admin/product/create')}}" class="btn btn-tool">
+                 <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
                      <i class="fa fa-plus"></i>
                      &nbsp; Add
                  </a>
@@ -53,12 +53,12 @@
                                 <td>{{ $product['code_product'] }}</td>
                                 <td>{{ $product['stock'] }}</td>
                                 <td class="text-center">
-                                    <form method="POST" action="{{ URL::to('/admin/product/'.$product['id']) }}">
+                                    <form method="POST" action="{{ URL::to('/product/'.$product['id_product']) }}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="DELETE" />
                                         <div class="btn-group">
-                                            <a class="btn btn-info" href="{{ URL::to('/admin/product/'.$product['id']) }}"><i class="fa fa-eye"></i></a>
-                                            <a class="btn btn-success" href="{{ URL::to('/admin/product/'.$product['id'].'/edit') }}"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-info" href="{{ URL::to('/product/'.$product['id_product']) }}"><i class="fa fa-eye"></i></a>
+                                            <a class="btn btn-success" href="{{ URL::to('/product/'.$product['id_product'].'/edit') }}"><i class="fa fa-pencil"></i></a>
                                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </div>
                                     </form>

@@ -23,7 +23,7 @@ class CreateProductTable extends Migration
             $table->enum('finish',['tabac','black']);
             $table->integer('price');
             $table->integer('id_category');
-            $table->integer('code_product');
+            $table->string('code_product');
             $table->integer('stock');
             $table->timestamps();
         });

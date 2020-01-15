@@ -20,7 +20,7 @@ class ProductController extends Controller
         //
         $product=\App\Product::all();
         $data=['product'=>$product];
-        return view('admin/product/index')->with($data);
+        return view('product/index')->with($data);
     }
 
     /**
@@ -31,7 +31,7 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('admin/product/create');
+        return view('product/create');
     }
 
     /**
@@ -75,7 +75,7 @@ class ProductController extends Controller
         if ($validator->fails()) {
  
             //refresh halaman
-            return Redirect::to('admin/product/create')
+            return Redirect::to('product/create')
             ->withErrors($validator);
  
         }else{
@@ -99,7 +99,7 @@ class ProductController extends Controller
  
             Session::flash('message','Product Stored');
  
-            return Redirect::to('admin/product');
+            return Redirect::to('product');
         }
     }
 
@@ -114,7 +114,7 @@ class ProductController extends Controller
         //
         $product=\App\Product::find($id_product);
         $d=['product'=>$product];
-        return view('admin/product/show')->with($d);
+        return view('product/show')->with($d);
     }
 
     /**

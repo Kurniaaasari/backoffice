@@ -19,7 +19,11 @@ class CreateUserTable extends Migration
         });
     }
 
+<<<<<<< Updated upstream
     /**
+=======
+    /** 
+>>>>>>> Stashed changes
      * Reverse the migrations.
      *
      * @return void

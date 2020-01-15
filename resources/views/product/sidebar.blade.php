@@ -69,68 +69,45 @@
             <!-- Nyoba Dulu -->
             <ul class="nav nav-treeview">
               <li class="nav-item">
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
                 <a href="{{URL::to('admin')}}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
-=======
-                <a href="#" class="nav-link active" >
-                  <i class="fa f-circle-o nav-icon"></i>
->>>>>>> Stashed changes
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/category')}}" class="nav-link active">
-                  <i class="fa f-circle-o nav-icon"></i>
-                  <p>Category</p>
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Data Category</p>
                 </a>
               </li>
               <li class="nav-item">
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
                 <a href="{{URL::to('product')}}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Data Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{URL::to('admin/product')}}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Data User</p>
-=======
-                <a href="{{URL::to('admin/product')}}" class="nav-link active">
-                  <i class="fa f-circle-o nav-icon"></i>
-                  <p>Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/user')}}" class="nav-link active">
-                  <i class="fa f-circle-o nav-icon"></i>
-                  <p>User</p>
->>>>>>> Stashed changes
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{URL::to('admin/whistlist')}}" class="nav-link active">
-                  <i class="fa f-circle-o nav-icon"></i>
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
                   <p>Wishlist</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/order')}}" class="nav-link active">
-                  <i class="fa f-circle-o nav-icon"></i>
-                  <p>Order</p>
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Data Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/payment')}}" class="nav-link active">
-                  <i class="fa f-circle-o nav-icon"></i>
-                  <p>Payment</p>
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Data Payment</p>
                 </a>
               </li>
             </ul> 

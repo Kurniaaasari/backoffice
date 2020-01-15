@@ -1,8 +1,8 @@
-@extends('admin/admin')
+@extends('product/product')
 @section('content')
 <div class="row">
     <div class="col-12">
-        {{ Form::model($product,['route'=>['product.update',$product['id']], 'files'=>true,'method'=>'PUT']) }}
+        {{ Form::model($product,['route'=>['product.update',$product['id_product']], 'files'=>true,'method'=>'PUT']) }}
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Update Data Product</h3>

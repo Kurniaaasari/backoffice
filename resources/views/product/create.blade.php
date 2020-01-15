@@ -69,8 +69,8 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ URL::to('product') }}" class="btn btn-outline-info">Back</a>
-                        {{ Form::submit('Save', ['class' => 'btn btn-primary pull-right']) }}
+                        <a href="{{ URL::to('product') }}" class="btn btn-outline-secondary">Back</a>
+                        {{ Form::submit('Save', ['class' => 'btn btn-secondary pull-right']) }}
                     </div>
                 </div>
             <!-- </form> -->

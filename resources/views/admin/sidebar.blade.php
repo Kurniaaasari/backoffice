@@ -70,14 +70,41 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{URL::to('admin')}}" class="nav-link active">
+<<<<<<< Updated upstream
                   <i class="fa f-circle-o nav-icon"></i>
+=======
+<<<<<<< HEAD
+                  <i class="fa fa-circle-o nav-icon"></i>
+<<<<<<< Updated upstream
+=======
+=======
+                <a href="#" class="nav-link active" >
+                  <i class="fa f-circle-o nav-icon"></i>
+>>>>>>> Stashed changes
+=======
+                  <i class="fa f-circle-o nav-icon"></i>
+>>>>>>> master
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
+<<<<<<< Updated upstream
                 <a href="#" class="nav-link active">
                   <i class="fa f-circle-o nav-icon"></i>
                   <p>Data Category</p>
+=======
+<<<<<<< HEAD
+                <a href="{{URL::to('admin/category')}}" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Category</p>
+=======
+                <a href="#" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Data Category</p>
+>>>>>>> master
+>>>>>>> Stashed changes
                 </a>
               </li>
               <li class="nav-item">
@@ -90,15 +117,43 @@
                 <a href="#" class="nav-link active">
                   <i class="fa f-circle-o nav-icon"></i>
                   <p>Data User</p>
+<<<<<<< Updated upstream
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link active">
+<<<<<<< Updated upstream
                   <i class="fa f-circle-o nav-icon"></i>
+=======
+                  <i class="fa fa-circle-o nav-icon"></i>
+=======
+=======
+                <a href="{{URL::to('admin/product')}}" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Product</p>
+                </a>
+              </li>
+              <li class="nav-item">
+<<<<<<< HEAD
+                <a href="{{URL::to('admin/user')}}" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>User</p>
+>>>>>>> Stashed changes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('admin/whistlist')}}" class="nav-link active">
+=======
+                <a href="#" class="nav-link active">
+>>>>>>> master
+                  <i class="fa f-circle-o nav-icon"></i>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
                   <p>Wishlist</p>
                 </a>
               </li>
               <li class="nav-item">
+<<<<<<< Updated upstream
                 <a href="#" class="nav-link active">
                   <i class="fa f-circle-o nav-icon"></i>
                   <p>Data Order</p>
@@ -108,6 +163,29 @@
                 <a href="#" class="nav-link active">
                   <i class="fa f-circle-o nav-icon"></i>
                   <p>Data Payment</p>
+=======
+<<<<<<< HEAD
+                <a href="{{URL::to('admin/order')}}" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Order</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('admin/payment')}}" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Payment</p>
+=======
+                <a href="#" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Data Order</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="fa f-circle-o nav-icon"></i>
+                  <p>Data Payment</p>
+>>>>>>> master
+>>>>>>> Stashed changes
                 </a>
               </li>
             </ul> 

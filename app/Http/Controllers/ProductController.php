@@ -132,6 +132,9 @@ class ProductController extends Controller
     public function edit($id_product)
     {
         //
+        $product=\App\Product::find($id_product);
+        $da=['product'=>$product];
+        return view('product/edit')->with($da);
     }
 
     /**

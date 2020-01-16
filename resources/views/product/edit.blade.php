@@ -19,22 +19,23 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            {{ Form::hidden('imagePath',$product['image'])}}
                             {{ Form::label('image', 'IMAGE') }}
-                            {{ Form::file('imageFile', $product['name'], ['class'=>'form-control'])}}
+                            {{ Form::file('imageFile', ['class'=>'form-control']) }}        
                         </div>
                         <div class="form-group">
-                            {{ Form::label('name_product', 'NAMA PRODUCT') }}
-                            {{ Form::text('name_product', $product['price'], ['class'=>'form-control', 'placeholder'=>'Input Poduct Name']) }}
+                            {{ Form::label('name_product', 'NAME PRODUCT') }}
+                            {{ Form::text('name_product', $product['name_product'], ['class'=>'form-control', 'placeholder'=>'Input Poduct Name']) }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             {{ Form::label('dimension', 'DIMENSION') }}
-                            {{ Form::text('dimension', '',['class'=>'form-control', 'placeholder'=>'Input Product Dimension']) }}
+                            {{ Form::text('dimension', $product['dimension'],['class'=>'form-control', 'placeholder'=>'Input Product Dimension']) }}
                         </div>
                         <div class="form-group">
                             {{ Form::label('fabric', 'FABRIC') }}
-                            {{ Form::text('fabric','', ['class'=>'form-control', 'placeholder'=>'Input Product Fabric']) }}
+                            {{ Form::text('fabric', $product['fabric'], ['class'=>'form-control', 'placeholder'=>'Input Product Fabric']) }}
                         </div>
                     </div>
 
@@ -54,7 +55,7 @@
                     <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('id_category', 'CATEGORY') }}
-                                    {{ Form::text('id_category', '', ['class'=>'form-control', 'placeholder'=>'Input Category of Product']) }}
+                                    {{ Form::text('id_category', $product['id_category'], ['class'=>'form-control', 'placeholder'=>'Input Category of Product']) }}
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('code_product', 'CODE') }}
@@ -74,8 +75,8 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a href="{{ URL::to('admin/product') }}" class="btn btn-outline-info">Back</a>
-                {{ Form::submit('Proses', ['class' => 'btn btn-primary pull-right']) }}
+                <a href="{{ URL::to('product/product') }}" class="btn btn-outline-info">Back</a>
+                {{ Form::submit('Save', ['class' => 'btn btn-primary pull-right']) }}
             </div>
         </div>
         <!-- </form> -->

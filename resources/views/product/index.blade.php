@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Product</h3>
+                <h3 class="card-title">Data Product Table</h3>
                 <div class="card-tools">
                  <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
                      <i class="fa fa-plus"></i>

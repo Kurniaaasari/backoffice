@@ -113,7 +113,9 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response 
+     
      */
     public function show($id_product)
     {
@@ -129,12 +131,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_product)
+    public function edit()
     {
+
         //
         $product=\App\Product::find($id_product);
         $da=['product'=>$product];
         return view('product/edit')->with($da);
+
     }
 
     /**
@@ -146,17 +150,77 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id_product)
     {
-        //
+         //
+         $rules=[
+            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
+            'name_product'=>'required',
+            'description'=>'required',
+            'dimension'=>'required',
+            'fabric'=>'required',
+            'finish'=>'required',
+            'price'=>'required|integer',
+            'id_category'=>'required|integer',
+            'code_product'=>'required|integer',
+            'stock'=>'required|integer',
+        ];
+ 
+        $pesan=[
+            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
+            'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
+            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
+            'fabric.required'=>'Fabric Tidak Boleh Kosong',
+            'finish.required'=>'Finish Tidak Boleh Kosong',
+            'price.required'=>'Harga Barang Tidak Boleh Kosong',
+            'id_category.required'=>'Tidak Boleh Kosong',
+            'code_product.required'=>'Tidak Boleh Kosong',
+            'stock.required'=>'Tidak Boleh Kosong',
+        ];
+ 
+ 
+        $validator=Validator::make(Input::all(),$rules,$pesan);
+        //jika ada data yang kosong
+        if ($validator->fails()) {
+            return Redirect::to('product/edit')
+            ->withErrors($validator);
+ 
+        }else{
+            $image=$request->file('imageFile')->store('productImages','public');
+             
+            $product=new \App\Product;
+ 
+            $product->image=$image;
+            $product->name_product=Input::get('name_product');
+            $product->description=Input::get('description');
+            $product->dimension=Input::get('dimension');
+            $product->fabric=Input::get('fabric');
+            $product->finish=Input::get('finish');
+            $product->price=Input::get('price');
+            $product->id_category=Input::get('id_category');
+            $product->code_product=Input::get('code_product');
+            $product->stock=Input::get('stock');
+            $product->save();
+ 
+            Session::flash('message','Product Updated');
+             
+            return Redirect::to('product');
+        }
+    }
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_product)
+    // public function destroy(id_product)
     {
         //
+//         $product=\App\Product::find($id_product);
+// $product->delete();
+// Session::flash('masasage','Product deleted');
+// return Redirect::to ('product');
+//     }
     }
-}

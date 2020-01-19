@@ -119,8 +119,8 @@ class ProductController extends Controller
     {
         //
         $product=\App\Product::find($id_product);
-        $d=['product'=>$product];
-        return view('product/show')->with($d);
+        $da=['product'=>$product];
+        return view('product/show')->with($da);
     }
 
     /**
@@ -133,8 +133,8 @@ class ProductController extends Controller
     {
         //
         $product=\App\Product::find($id_product);
-        $da=['product'=>$product];
-        return view('product/edit')->with($da);
+        $d=['product'=>$product];
+        return view('product/edit')->with($d);
     }
 
     /**
@@ -146,7 +146,69 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id_product)
     {
-        //
+            //
+            $rules =[
+                'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
+                'name_product'=>'required',
+                'description'=>'required',
+                'dimension'=>'required',
+                'fabric'=>'required',
+                'finish'=>'required',
+                'price'=>'required|integer',
+                'id_category'=>'required|integer',
+                'code_product'=>'required|integer',
+                'stock'=>'required|integer',
+            ];
+     
+            $pesan=[
+                'imageFile.required'=>'Gambar Tidak Boleh Kosong',
+                'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
+                'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
+                'fabric.required'=>'Fabric Tidak Boleh Kosong',
+                'finish.required'=>'Finish Tidak Boleh Kosong',
+                'price.required'=>'Harga Barang Tidak Boleh Kosong',
+                'id_category.required'=>'Tidak Boleh Kosong',
+                'code_product.required'=>'Tidak Boleh Kosong',
+                'stock.required'=>'Tidak Boleh Kosong',
+    
+            ];
+    
+    
+            $validator=Validator::make(Input::all(),$rules,$pesan);
+    
+            if ($validator->fails()) {
+                return Redirect::to('product/'.$id_product.'/edit')
+                ->withErrors($validator);
+    
+            }else{
+    
+                $image="";
+    
+                if (!$request->file('imageFile')) {
+                    # code...
+                    $image=Input::get('imagePath');
+                }else{
+                    $image=$request->file('imageFile')->store('productImages','public');                
+                }
+    
+                $product=\App\Product::find($id_product);
+    
+                $product->image=$image;
+                $product->name_product=Input::get('name_product');
+                $product->description=Input::get('description');
+                $product->dimension=Input::get('dimension');
+                $product->fabric=Input::get('fabric');
+                $product->finish=Input::get('finish');
+                $product->price=Input::get('price');
+                $product->id_category=Input::get('id_category');
+                $product->code_product=Input::get('code_product');
+                $product->stock=Input::get('stock');
+                $product->save();
+    
+                Session::flash('message','Data Barang Berhasil Diubah');
+                
+                return Redirect::to('product');
+            }
     }
 
     /**
@@ -158,5 +220,10 @@ class ProductController extends Controller
     public function destroy($id_product)
     {
         //
+        $product=\App\Product::find($id_product);
+        $product->delete();
+
+        Session::flash('message','Barang Dihapus');
+        return Redirect::to('product');
     }
 }

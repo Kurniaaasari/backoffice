@@ -61,9 +61,6 @@
 
                                             <a class="btn btn-success" href="{{ URL::to('/product/'.$product['id_product'].'/edit') }}"><i class="fa fa-pencil"></i></a>
 
-                                            <a class="btn btn-success" href="{{ URL::to('/product/'.$product['id_product'].'/edit') }}">
-                                            <i class="fa fa-pencil"></i></a>
-
                                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </div>
                                     </form>

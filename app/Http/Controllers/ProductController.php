@@ -27,6 +27,8 @@ class ProductController extends Controller
         $product=\App\Product::all();
         $data=['product'=>$product];
         return view('product/index')->with($data);
+
+        
     }
 
     /**
@@ -122,6 +124,7 @@ class ProductController extends Controller
         //
         $product=\App\Product::find($id_product);
         $d=['product'=>$product];
+      
         return view('product/show')->with($d);
     }
 
@@ -131,7 +134,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id_product)
     {
 
         //
@@ -140,15 +143,14 @@ class ProductController extends Controller
         return view('product/edit')->with($da);
 
     }
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+    //  * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_product)
+    public function update(Request $id_product)
     {
          //
          $rules=[
@@ -180,7 +182,7 @@ class ProductController extends Controller
         $validator=Validator::make(Input::all(),$rules,$pesan);
         //jika ada data yang kosong
         if ($validator->fails()) {
-            return Redirect::to('product/edit')
+            return Redirect::to('product/product')
             ->withErrors($validator);
  
         }else{
@@ -203,6 +205,8 @@ class ProductController extends Controller
             Session::flash('message','Product Updated');
              
             return Redirect::to('product');
+
+
         }
     }
 
@@ -215,12 +219,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function destroy(id_product)
-    {
-        //
-//         $product=\App\Product::find($id_product);
-// $product->delete();
-// Session::flash('masasage','Product deleted');
-// return Redirect::to ('product');
-//     }
-    }
+    // public function destroy('id_product')
+    // { 
+    //     $product=\App\Product::find($id_product);
+    //     $product->delete();
+    //     Session::flash('masasage','Product deleted');
+    //     return Redirect::to ('product');
+    // }
+    

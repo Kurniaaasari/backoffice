@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <img src="{{ asset('storage/'.$product['image']) }}"
                                 height="200" width="100%"/>
                         </div>
@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name_product">NAME PRODUCT</label>
-                                <input id_product="name_product" type="text" value="{{ $product['name_product'] }}" class="form-control" disabled />
+                                <input id_product="name_product" type="text" value= "{{$product['name_product']}}"  class="form-control" disabled />
                             </div>
                             <div class="form-group">
                                 <label for="dimension">DIMENSION</label>

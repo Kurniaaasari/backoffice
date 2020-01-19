@@ -30,11 +30,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                         {{ Form::label('dimension', 'DIMENSION') }}
-                                    {{ Form::text('dimension', '', ['class'=>'form-control', 'placeholder'=>'Input Dimension of Product']) }}      
+                                    {{ Form::text('dimension', $product['dimension'], ['class'=>'form-control', 'placeholder'=>'Input Dimension of Product']) }}      
                         </div>
                         <div class="form-group">
                         {{ Form::label('fabric', 'FABRIC') }}
-                                    {{ Form::text('fabric', '', ['class'=>'form-control', 'placeholder'=>'Input Fabric of Product']) }}   </div>
+                                    {{ Form::text('fabric', $product['fabric'], ['class'=>'form-control', 'placeholder'=>'Input Fabric of Product']) }}   </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -44,28 +44,28 @@
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('price', 'PRICE') }}
-                                    {{ Form::text('price', '', ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
+                                    {{ Form::text('price', $product['price'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
                                 </div>
                             </div>
                              <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('id_category', 'CATEGORY') }}
-                                    {{ Form::text('id_category', '', ['class'=>'form-control', 'placeholder'=>'Input Category of Product']) }}
+                                    {{ Form::text('id_category', $product['category'], ['class'=>'form-control', 'placeholder'=>'Input Category of Product']) }}
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('code_product', 'CODE') }}
-                                    {{ Form::text('code_product', '', ['class'=>'form-control', 'placeholder'=>'Input Code of Product']) }}
+                                    {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
                                 </div>
                             </div>
                             </div>
                              <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('stock', 'STOCK') }}
-                                    {{ Form::text('stock', '', ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
+                                    {{ Form::text('stock',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
                                 </div>
                                 <div class="form-group">
                                 {{ Form::label('description', 'DESCRIPTION') }}
-                                {{ Form::textarea('description', '', ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
+                                {{ Form::textarea('description',$product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
                             </div>
                             </div>
                         </div>

@@ -33,7 +33,6 @@
                                     {{ Form::text('dimension', $product['dimension'], ['class'=>'form-control', 'placeholder'=>'Input Dimension of Product']) }}      
                         </div>
                         <div class="form-group">
-<<<<<<< HEAD
                             {{ Form::label('fabric', 'FABRIC') }}
                             {{ Form::text('fabric', $product['fabric'], ['class'=>'form-control', 'placeholder'=>'Input Product Fabric']) }}
                         </div>
@@ -53,56 +52,24 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-=======
-                        {{ Form::label('fabric', 'FABRIC') }}
-                                    {{ Form::text('fabric', $product['fabric'], ['class'=>'form-control', 'placeholder'=>'Input Fabric of Product']) }}   </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    {{ Form::label('finish', 'FINISH') }}
-                                    {{ Form::select('finish', ['tabac'=>'Tabac', 'black'=>'Black'], null,
-                                        ['class'=>'form-control']) }}        
-                                </div>
-                                <div class="form-group">
-                                    {{ Form::label('price', 'PRICE') }}
-                                    {{ Form::text('price', $product['price'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
-                                </div>
-                            </div>
-                             <div class="col-md-6">
->>>>>>> master
                                 <div class="form-group">
                                     {{ Form::label('id_category', 'CATEGORY') }}
                                     {{ Form::text('id_category', $product['category'], ['class'=>'form-control', 'placeholder'=>'Input Category of Product']) }}
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('code_product', 'CODE') }}
-<<<<<<< HEAD
                                     {{ Form::text('code_product', $product['code_product'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product']) }}
-=======
-                                    {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
->>>>>>> master
                                 </div>
                             </div>
                             </div>
                              <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('stock', 'STOCK') }}
-<<<<<<< HEAD
                                     {{ Form::text('stock', $product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
                                 </div>
                                 <div class="form-group">
                                 {{ Form::label('description', 'DESCRIPTION') }}
                                 {{ Form::textarea('description', $product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
-=======
-                                    {{ Form::text('stock',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
-                                </div>
-                                <div class="form-group">
-                                {{ Form::label('description', 'DESCRIPTION') }}
-                                {{ Form::textarea('description',$product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
-                            </div>
-                            </div>
-                        </div>
->>>>>>> master
                     </div>
             <div class="card-footer">
                 <a href="{{ URL::to('product') }}" class="btn btn-outline-info">Back</a>

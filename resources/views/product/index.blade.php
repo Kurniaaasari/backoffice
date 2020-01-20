@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Product Table</h3>
+                <h3 class="card-title">PRODUCT</h3>
                 <div class="card-tools">
                  <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
                      <i class="fa fa-plus"></i>
@@ -58,7 +58,9 @@
                                         <input type="hidden" name="_method" value="DELETE" />
                                         <div class="btn-group">
                                             <a class="btn btn-info" href="{{ URL::to('/product/show'.$product['id_product']) }}"><i class="fa fa-eye"></i></a>
+
                                             <a class="btn btn-success" href="{{ URL::to('/product/'.$product['id_product'].'/edit') }}"><i class="fa fa-pencil"></i></a>
+
                                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </div>
                                     </form>

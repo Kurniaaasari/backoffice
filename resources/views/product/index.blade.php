@@ -1,7 +1,7 @@
 @extends('product/product')
 @section('content')
 <div class="row">
-    <div class="col-12">
+    <div class="col-20">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">PRODUCT</h3>
@@ -30,12 +30,12 @@
                                 <th>DESCRIPTION</th>
                                 <th>DIMENSION</th>
                                 <th>FABRIC</th>
-                                <th>MATERIAL</th>
+                                <th>FINISH</th>
                                 <th>PRICE</th>
                                 <th>CATEGORY</th>
                                 <th>CODE</th>
                                 <th>STOCK</th>
-                                <th>Option</th>
+                                <th>OPTION</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -27,7 +27,6 @@ class ProductController extends Controller
         $product=\App\Product::all();
         $data=['product'=>$product];
         return view('product/index')->with($data);
-
         
     }
 
@@ -52,6 +51,8 @@ class ProductController extends Controller
     {
         //
         $rules =[
+            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
+            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
             'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
             'name_product'=>'required',
             'description'=>'required',
@@ -146,7 +147,6 @@ class ProductController extends Controller
         return view('product/edit')->with($d);
     }
 
-
     /**
      * Update the specified resource in storage.
      *
@@ -183,7 +183,6 @@ class ProductController extends Controller
     
             ];
     
-    
             $validator=Validator::make(Input::all(),$rules,$pesan);
     
             if ($validator->fails()) {
@@ -203,7 +202,9 @@ class ProductController extends Controller
     
                 $product=\App\Product::find($id_product);
     
-                $product->image=$image;
+                $product->image1=$image1;
+                $product->image2=$image2;
+                $product->image3=$image3;
                 $product->name_product=Input::get('name_product');
                 $product->description=Input::get('description');
                 $product->dimension=Input::get('dimension');
@@ -214,9 +215,7 @@ class ProductController extends Controller
                 $product->code_product=Input::get('code_product');
                 $product->stock=Input::get('stock');
                 $product->save();
-    
                 Session::flash('message','Data Barang Berhasil Diubah');
-                
                 return Redirect::to('product');
             
     }

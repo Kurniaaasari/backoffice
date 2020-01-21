@@ -22,41 +22,36 @@
                     padding: 10px 10px;
                     font-size: 15px;
                 }
-                .card{
-                    width: 80%;
+                .card1{
+                    width: 100%;
                     /* height: 80px; */
                     margin: 10px 10px 10px 10px;
                     padding: 5px 5px 5px 5px;
+                    /* overflow-y: auto;
+                    overflow-x: scroll; */
+                }
+                .row{
+                    width: 100%;
+                    /* height: 80px; */
+                    /* margin: 10px 10px 10px 10px;
+                    padding: 5px 5px 5px 5px; */
                     overflow-y: auto;
                     overflow-x: scroll;
                 }
-                /* .col-md-20{
-                    background-color: #333;
-                    overflow: auto;
-                    white-space: nowrap;
-                }
-                .col-md-20 .table{
-                    display: inline-block;
-                    color: white;
-                    text-align: center;
-                    padding: 14px;
-                    text-decoration: none;
-                }
-                .col-md-20 .table : hover{
-                    background-color: #777;
-                } */
+                
 
 </style>
 <div class="row">
-    <div class="col-30">
-        <div class="card">
+    <div class="col-20">
+        <div class="card1">
             <div class="card-header">
-                <h3 class="card-title">PRODUCT</h3>
-                <div class="card-tools">
-                 <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
+                <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
                      <i class="fa fa-plus"></i>
                      &nbsp; Add
                  </a>
+                <!-- <h3 class="card-title">PRODUCT</h3> -->
+                <div class="card-tools">
+                 
              </div>
          </div>
          <div class="card-body">
@@ -66,7 +61,7 @@
                 {{ Session::get('message') }}
             </div>
             @endif
-            <div class="row">
+            <div class="row1">
                 <div class="col-md-20">
                     <table class="table table-bordered table-hover">
                         <thead>

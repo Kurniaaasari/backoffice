@@ -69,8 +69,7 @@
                                     {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
                                 </div>
                             </div>
-                            </div>
-                             <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('stock', 'STOCK') }}
                                     {{ Form::text('stock',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
@@ -78,6 +77,7 @@
                                 <div class="form-group">
                                 {{ Form::label('description', 'DESCRIPTION') }}
                                 {{ Form::textarea('description',$product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
+                                </div>
                             </div>
                             </div>
                         </div>

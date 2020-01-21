@@ -16,7 +16,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{ Form::label('image', 'IMAGE') }}
+                                    {{ Form::label('image1', 'IMAGE 1') }}
+                                    {{ Form::file('imageFile', ['class'=>'form-control']) }}        
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('image2', 'IMAGE 2') }}
+                                    {{ Form::file('imageFile', ['class'=>'form-control']) }}        
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('image3', 'IMAGE 3') }}
                                     {{ Form::file('imageFile', ['class'=>'form-control']) }}        
                                 </div>
                                 <div class="form-group">

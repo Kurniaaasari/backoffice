@@ -66,6 +66,8 @@ class ProductController extends Controller
  
         $pesan=[
             'imageFile.required'=>'Gambar Tidak Boleh Kosong',
+            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
+            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
             'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
             'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
             'fabric.required'=>'Fabric Tidak Boleh Kosong',
@@ -88,11 +90,15 @@ class ProductController extends Controller
  
         }else{
  
-            $image=$request->file('imageFile')->store('productImages','public');
+            $image1=$request->file('imageFile')->store('productImages','public');
+            $image2=$request->file('imageFile')->store('productImages','public');
+            $image3=$request->file('imageFile')->store('productImages','public');
              
             $product=new \App\Product;
  
-            $product->image=$image;
+            $product->image1=$image1;
+            $product->image2=$image2;
+            $product->image3=$image3;
             $product->name_product=Input::get('name_product');
             $product->description=Input::get('description');
             $product->dimension=Input::get('dimension');
@@ -121,19 +127,8 @@ class ProductController extends Controller
     {
         //
         $product=\App\Product::find($id_product);
-<<<<<<< Updated upstream
         $da=['product'=>$product];
         return view('product/show')->with($da);
-=======
-
-        $da=['product'=>$product];
-        return view('product/show')->with($da);
-
-        $d=['product'=>$product];
-      
-        return view('product/show')->with($d);
-
->>>>>>> Stashed changes
     }
 
     /**
@@ -146,17 +141,11 @@ class ProductController extends Controller
     {
         //
         $product=\App\Product::find($id_product);
-<<<<<<< Updated upstream
+
         $d=['product'=>$product];
         return view('product/edit')->with($d);
     }
-=======
 
-        $d=['product'=>$product];
-        return view('product/edit')->with($d);
-    
-
->>>>>>> Stashed changes
 
     /**
      * Update the specified resource in storage.
@@ -167,10 +156,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id_product)
     {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             //
             $rules =[
                 'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
@@ -233,72 +218,10 @@ class ProductController extends Controller
                 Session::flash('message','Data Barang Berhasil Diubah');
                 
                 return Redirect::to('product');
-            }
-<<<<<<< Updated upstream
+            
     }
-=======
-
-         //
-         $rules=[
-            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
-            'name_product'=>'required',
-            'description'=>'required',
-            'dimension'=>'required',
-            'fabric'=>'required',
-            'finish'=>'required',
-            'price'=>'required|integer',
-            'id_category'=>'required|integer',
-            'code_product'=>'required|integer',
-            'stock'=>'required|integer',
-        ];
- 
-        $pesan=[
-            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
-            'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
-            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
-            'fabric.required'=>'Fabric Tidak Boleh Kosong',
-            'finish.required'=>'Finish Tidak Boleh Kosong',
-            'price.required'=>'Harga Barang Tidak Boleh Kosong',
-            'id_category.required'=>'Tidak Boleh Kosong',
-            'code_product.required'=>'Tidak Boleh Kosong',
-            'stock.required'=>'Tidak Boleh Kosong',
-        ];
- 
- 
-        $validator=Validator::make(Input::all(),$rules,$pesan);
-        //jika ada data yang kosong
-        if ($validator->fails()) {
-            return Redirect::to('product/product')
-            ->withErrors($validator);
- 
-        }else{
-            $image=$request->file('imageFile')->store('productImages','public');
-             
-            $product=new \App\Product;
- 
-            $product->image=$image;
-            $product->name_product=Input::get('name_product');
-            $product->description=Input::get('description');
-            $product->dimension=Input::get('dimension');
-            $product->fabric=Input::get('fabric');
-            $product->finish=Input::get('finish');
-            $product->price=Input::get('price');
-            $product->id_category=Input::get('id_category');
-            $product->code_product=Input::get('code_product');
-            $product->stock=Input::get('stock');
-            $product->save();
- 
-            Session::flash('message','Product Updated');
-             
-            return Redirect::to('product');
-
-
-        }
-    }
-
-
-
->>>>>>> Stashed changes
+}
+    
 
     /**
      * Remove the specified resource from storage.
@@ -306,10 +229,6 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     public function destroy($id_product)
     {
         //
@@ -321,7 +240,3 @@ class ProductController extends Controller
     }
 
 }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes

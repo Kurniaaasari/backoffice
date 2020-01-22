@@ -89,7 +89,7 @@
               <li class="nav-item">
                 <a href="{{URL::to('admin/user')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
-                  <p>Data User</p>
+                  <p>Data Customer</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -114,6 +114,12 @@
                 <a href="{{URL::to('admin/payment')}}" class="nav-link">
                   <i class="fa nav-icon"></i>
                   <p>Detail Order</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('admin/payment')}}" class="nav-link">
+                  <i class="fa nav-icon"></i>
+                  <p>Address</p>
                 </a>
               </li>
             </ul> 

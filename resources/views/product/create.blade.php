@@ -68,7 +68,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('category', 'CATEGORY') }}
-                                    {{ Form::select('category', ['mirror'=>'Mirror', 'tables'=>'Tables', 'cabinets'=>'Cabinets', 'bedroom'=>'Bedroom','seating'=>'Seating'], null, ['class'=>'form-control']) }}  
+                                    {{ Form::select('category', ['mirrors'=>'Mirrors', 'tables'=>'Tables', 'cabinets'=>'Cabinets', 'bedroom'=>'Bedroom','seating'=>'Seating'], null, ['class'=>'form-control']) }}  
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('code_product', 'CODE') }}

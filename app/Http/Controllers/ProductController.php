@@ -51,30 +51,41 @@ class ProductController extends Controller
     {
         //
         $rules =[
-            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
-            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
-            'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
+            'image1File'=>'required|mimes:jpg,png,jpeg,JPG',
+            'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
+            'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
             'name_product'=>'required',
             'description'=>'required',
-            'dimension'=>'required',
-            'fabric'=>'required',
+            'material'=>'required',
             'finish'=>'required',
+            'width'=>'required',
+            'height'=>'required',
+            'dense'=>'required',
+            'detail1'=>'required',
+            'detail2'=>'required',
+            'detail3'=>'required',
             'price'=>'required|integer',
-            'id_category'=>'required|integer',
+            'category'=>'required',
             'code_product'=>'required|integer',
             'stock'=>'required|integer',
         ];
  
         $pesan=[
-            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
-            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
-            'imageFile.required'=>'Gambar Tidak Boleh Kosong',
+            'image1File.required'=>'Gambar Tidak Boleh Kosong',
+            'image2File.required'=>'Gambar Tidak Boleh Kosong',
+            'image3File.required'=>'Gambar Tidak Boleh Kosong',
             'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
             'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
-            'fabric.required'=>'Fabric Tidak Boleh Kosong',
+            'material.required'=>'Material Tidak Boleh Kosong',
             'finish.required'=>'Finish Tidak Boleh Kosong',
+            'width.required'=>'Width Tidak Boleh Kosong',
+            'height.required'=>'Height Tidak Boleh Kosong',
+            'dense.required'=>'Dense Tidak Boleh Kosong',
+            'detail1.required'=>'Detail Tidak Boleh Kosong',
+            'detail2.required'=>'Detail Tidak Boleh Kosong',
+            'detail3.required'=>'Detail Tidak Boleh Kosong',
             'price.required'=>'Harga Barang Tidak Boleh Kosong',
-            'id_category.required'=>'Tidak Boleh Kosong',
+            'category.required'=>'Tidak Boleh Kosong',
             'code_product.required'=>'Tidak Boleh Kosong',
             'stock.required'=>'Tidak Boleh Kosong',
 
@@ -91,9 +102,9 @@ class ProductController extends Controller
  
         }else{
  
-            $image1=$request->file('imageFile')->store('productImages','public');
-            $image2=$request->file('imageFile')->store('productImages','public');
-            $image3=$request->file('imageFile')->store('productImages','public');
+            $image1=$request->file('image1File')->store('productImages','public');
+            $image2=$request->file('image2File')->store('productImages','public');
+            $image3=$request->file('image3File')->store('productImages','public');
              
             $product=new \App\Product;
  
@@ -102,11 +113,16 @@ class ProductController extends Controller
             $product->image3=$image3;
             $product->name_product=Input::get('name_product');
             $product->description=Input::get('description');
-            $product->dimension=Input::get('dimension');
-            $product->fabric=Input::get('fabric');
+            $product->material=Input::get('material');
             $product->finish=Input::get('finish');
+            $product->width=Input::get('width');
+            $product->height=Input::get('height');
+            $product->dense=Input::get('dense');
+            $product->detail1=Input::get('detail1');
+            $product->detail2=Input::get('detail2');
+            $product->detail3=Input::get('detail3');
             $product->price=Input::get('price');
-            $product->id_category=Input::get('id_category');
+            $product->category=Input::get('category');
             $product->code_product=Input::get('code_product');
             $product->stock=Input::get('stock');
            
@@ -158,26 +174,41 @@ class ProductController extends Controller
     {
             //
             $rules =[
-                'imageFile'=>'required|mimes:jpg,png,jpeg,JPG',
+                'image1File'=>'required|mimes:jpg,png,jpeg,JPG',
+                'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
+                'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
                 'name_product'=>'required',
                 'description'=>'required',
-                'dimension'=>'required',
-                'fabric'=>'required',
+                'material'=>'required',
                 'finish'=>'required',
+                'width'=>'required',
+                'height'=>'required',
+                'dense'=>'required',
+                'detail1'=>'required',
+                'detail2'=>'required',
+                'detail3'=>'required',
                 'price'=>'required|integer',
-                'id_category'=>'required|integer',
+                'category'=>'required',
                 'code_product'=>'required|integer',
                 'stock'=>'required|integer',
             ];
      
             $pesan=[
-                'imageFile.required'=>'Gambar Tidak Boleh Kosong',
+                'image1File.required'=>'Gambar Tidak Boleh Kosong',
+                'image2File.required'=>'Gambar Tidak Boleh Kosong',
+                'image3File.required'=>'Gambar Tidak Boleh Kosong',
                 'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
                 'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
-                'fabric.required'=>'Fabric Tidak Boleh Kosong',
+                'material.required'=>'Material Tidak Boleh Kosong',
                 'finish.required'=>'Finish Tidak Boleh Kosong',
+                'width.required'=>'Width Tidak Boleh Kosong',
+                'height.required'=>'Height Tidak Boleh Kosong',
+                'dense.required'=>'Dense Tidak Boleh Kosong',
+                'detail1.required'=>'Detail Tidak Boleh Kosong',
+                'detail2.required'=>'Detail Tidak Boleh Kosong',
+                'detail3.required'=>'Detail Tidak Boleh Kosong',
                 'price.required'=>'Harga Barang Tidak Boleh Kosong',
-                'id_category.required'=>'Tidak Boleh Kosong',
+                'category.required'=>'Tidak Boleh Kosong',
                 'code_product.required'=>'Tidak Boleh Kosong',
                 'stock.required'=>'Tidak Boleh Kosong',
     
@@ -191,14 +222,31 @@ class ProductController extends Controller
     
             }else{
     
-                $image="";
+                $image1="";
     
-                if (!$request->file('imageFile')) {
+                if (!$request->file('image1File')) {
                     
-                    $image=Input::get('imagePath');
+                    $image1=Input::get('image1Path');
                 }else{
-                    $image=$request->file('imageFile')->store('productImages','public');                
+                    $image1=$request->file('image1File')->store('productImages','public');                
+                
+                    $image2="";
+    
+                if (!$request->file('image2File')) {
+                    
+                    $image2=Input::get('image2Path');
+                }else{
+                    $image2=$request->file('image2File')->store('productImages','public');                
+               
+                    $image3="";
+    
+                if (!$request->file('image3File')) {
+                    
+                    $image3=Input::get('image3Path');
+                }else{
+                    $image3=$request->file('image3File')->store('productImages','public');                
                 }
+            
     
                 $product=\App\Product::find($id_product);
     
@@ -207,11 +255,16 @@ class ProductController extends Controller
                 $product->image3=$image3;
                 $product->name_product=Input::get('name_product');
                 $product->description=Input::get('description');
-                $product->dimension=Input::get('dimension');
-                $product->fabric=Input::get('fabric');
+                $product->material=Input::get('material');
                 $product->finish=Input::get('finish');
+                $product->width=Input::get('width');
+                $product->height=Input::get('height');
+                $product->dense=Input::get('dense');
+                $product->detail1=Input::get('detail1');
+                $product->detail2=Input::get('detail2');
+                $product->detail3=Input::get('detail3');
                 $product->price=Input::get('price');
-                $product->id_category=Input::get('id_category');
+                $product->category=Input::get('category');
                 $product->code_product=Input::get('code_product');
                 $product->stock=Input::get('stock');
                 $product->save();
@@ -220,8 +273,7 @@ class ProductController extends Controller
             
     }
 }
-    
-
+}}
     /**
      * Remove the specified resource from storage.
      *
@@ -239,3 +291,4 @@ class ProductController extends Controller
     }
 
 }
+    

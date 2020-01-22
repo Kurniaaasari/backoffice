@@ -74,12 +74,12 @@
                   <p>Dashboard</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="{{URL::to('admin/category')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
-                  <p>Data Category</p>
+                  <p>Detail Order</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="{{URL::to('product')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
@@ -108,6 +108,12 @@
                 <a href="{{URL::to('admin/payment')}}" class="nav-link">
                   <i class="fa nav-icon"></i>
                   <p>Data Payment</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('admin/payment')}}" class="nav-link">
+                  <i class="fa nav-icon"></i>
+                  <p>Detail Order</p>
                 </a>
               </li>
             </ul> 

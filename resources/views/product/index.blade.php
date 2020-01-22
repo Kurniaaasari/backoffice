@@ -47,7 +47,7 @@
             <div class="card-header">
                 <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
                      <i class="fa fa-plus"></i>
-                     &nbsp; Add
+                     &nbsp; Add Product
                  </a>
                 <!-- <h3 class="card-title">PRODUCT</h3> -->
                 <div class="card-tools">
@@ -72,10 +72,15 @@
                                 <th>IMAGE 3</th>
                                 <th>NAME</th>
                                 <th>DESCRIPTION</th>
-                                <th>DIMENSION</th>
-                                <th>FABRIC</th>
+                                <th>MATERIAL</th>
                                 <th>FINISH</th>
+                                <th>WIDTH</th>
+                                <th>HEIGHT</th>
+                                <th>DENSE</th>
                                 <th>PRICE</th>
+                                <th>DETAIL 1</th>
+                                <th>DETAIL 2</th>
+                                <th>DETAIL 3</th>
                                 <th>CATEGORY</th>
                                 <th>CODE</th>
                                 <th>STOCK</th>
@@ -92,11 +97,16 @@
                                 <td class="text-center"><img src="{{ asset('storage/'.$product['image3']) }}" width="100"/></td>
                                 <td>{{ $product['name_product'] }}</td>
                                 <td>{{ $product['description'] }}</td>
-                                <td>{{ $product['dimension'] }}</td>
-                                <td>{{ $product['fabric'] }}</td>
+                                <td>{{ $product['material'] }}</td>
                                 <td>{{ $product['finish'] }}</td>
-                                <td>$. {{ $product['price'] }}</td>
-                                <td>{{ $product['id_category'] }}</td>
+                                <td>{{ $product['width'] }}</td>
+                                <td>{{ $product['height'] }}</td>
+                                <td>{{ $product['dense'] }}</td>
+                                <td>$ {{ $product['price'] }}</td>
+                                <td>{{ $product['category'] }}</td>
+                                <td>{{ $product['detail1'] }}</td>
+                                <td>{{ $product['detail2'] }}</td>
+                                <td>{{ $product['detail3'] }}</td>
                                 <td>{{ $product['code_product'] }}</td>
                                 <td>{{ $product['stock'] }}</td>
                                 <td class="text-center">

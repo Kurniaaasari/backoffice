@@ -42,10 +42,10 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                         {{ Form::label('dimension', 'DIMENSION') }}
                         {{ Form::text('dimension', $product['dimension'], ['class'=>'form-control', 'placeholder'=>'Input Dimension of Product']) }}      
-                        </div>
+                        </div> -->
                         <div class="form-group">
                         {{ Form::label('material', 'MATERIAL') }}
                         {{ Form::text('material', $product['material'], ['class'=>'form-control', 'placeholder'=>'Input Material of Product']) }}   

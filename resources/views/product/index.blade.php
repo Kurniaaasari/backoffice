@@ -40,15 +40,14 @@
                 }
                 
 
-</style>
+                </style>
 <div class="row">
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
-                <a href="{{ URL::to('product/create')}}" class="btn btn-tool">
-                     <i class="fa fa-plus"></i>
-                     &nbsp; Add Product
-                 </a>
+            <div>
+            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float-left">Add Customer</a>
+            </div>
                 <!-- <h3 class="card-title">PRODUCT</h3> -->
                 <div class="card-tools">
                  
@@ -114,7 +113,7 @@
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="DELETE" />
                                         <div class="btn-group">
-                                            <a class="btn btn-info" href="{{ URL::to('/product/show'.$product['id_product']) }}"><i class="fa fa-eye"></i></a>
+                                            <!-- <a class="btn btn-info" href="{{ URL::to('/product/show'.$product['id_product']) }}"><i class="fa fa-eye"></i></a> -->
 
                                             <a class="btn btn-success" href="{{ URL::to('/product/'.$product['id_product'].'/edit') }}"><i class="fa fa-pencil"></i></a>
 

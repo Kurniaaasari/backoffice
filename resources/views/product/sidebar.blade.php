@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="lte/dist/img/profile.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="lte/dist/img/profile.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{URL::to('admin')}}" class="d-block">Admin</a>
@@ -69,7 +69,7 @@
             <!-- Nyoba Dulu -->
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{URL::to('admin')}}" class="nav-link">
+                <a href="{{URL::to('admin')}}" class="nav-link ">
                 <i class="fa nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
@@ -87,37 +87,37 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/user')}}" class="nav-link">
+                <a href="{{URL::to('customer')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
                   <p>Data Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/whistlist')}}" class="nav-link">
+                <a href="{{URL::to('whistlist')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
                   <p>Wishlist</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/order')}}" class="nav-link">
+                <a href="{{URL::to('order')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
                   <p>Data Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/payment')}}" class="nav-link">
+                <a href="{{URL::to('payment')}}" class="nav-link">
                   <i class="fa nav-icon"></i>
                   <p>Data Payment</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/payment')}}" class="nav-link">
+                <a href="{{URL::to('payment')}}" class="nav-link">
                   <i class="fa nav-icon"></i>
                   <p>Detail Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('admin/payment')}}" class="nav-link">
+                <a href="{{URL::to('address')}}" class="nav-link">
                   <i class="fa nav-icon"></i>
                   <p>Address</p>
                 </a>

@@ -46,7 +46,7 @@
         <div class="card1">
             <div class="card-header">
             <div>
-            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float-left">Add Customer</a>
+            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float-left">Add Product</a>
             </div>
                 <!-- <h3 class="card-title">PRODUCT</h3> -->
                 <div class="card-tools">

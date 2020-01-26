@@ -153,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </h3>
                 <ul class="nav nav-pills ml-auto p-2">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                    <a class="nav-link " href="#revenue-chart" data-toogle="tab">Area</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>

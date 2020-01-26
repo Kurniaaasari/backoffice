@@ -93,7 +93,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('whistlist')}}" class="nav-link">
+                <a href="{{URL::to('wishlist')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
                   <p>Wishlist</p>
                 </a>

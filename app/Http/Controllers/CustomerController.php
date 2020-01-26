@@ -25,8 +25,8 @@ class CustomerController extends Controller
     {
         //
         $customer=\App\Customer::all();
-        $d=['customer'=>$customer];
-        return view('customer/index')->with($d);
+        $da=['customer'=>$customer];
+        return view('customer/index')->with($da);
         
     }
 

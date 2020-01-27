@@ -1,7 +1,6 @@
 @extends('product/product')
 @section('content')
-
-<style> 
+<style>
 .table{
                     width: 100%;
                     margin-top: 20px;
@@ -37,7 +36,7 @@
                     padding: 5px 5px 5px 5px; */
                     overflow-y: auto;
                     overflow-x: scroll;
-                }
+                } -->
                 
 
                 </style>
@@ -62,8 +61,9 @@
             @endif
             <div class="row1">
                 <div class="col-md-20">
-                    <table class="table table-bordered table-hover">
-                        <thead>
+                    <div class=".table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>ID</th>
                                 <th>IMAGE 1</th>
@@ -126,6 +126,7 @@
                             
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
 

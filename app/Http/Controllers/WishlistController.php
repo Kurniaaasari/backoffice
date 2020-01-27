@@ -21,7 +21,7 @@ class WishlistController extends Controller
         $data = DB::table('wishlist')
               ->join('product','wishlist.id_product','=', 'product.id_product')
               ->join('customer','wishlist.id_customer', '=','customer.id_customer')
-              ->select('wishlist.id_wishlist','customer.name','product.name_product')
+              ->select('wishlist.id_wishlist','customer.name','product.name_product','product.material','product.finish','product.price')
               ->get();
         return view('wishlist.index', compact('data'));
     }

@@ -22,20 +22,7 @@
                     padding: 10px 10px;
                     font-size: 15px;
                 }
-                /* .card1{ */
-                    /* width: 100%; */
-                    /* height: 80px; */
-                    /* margin: 10px 10px 10px 10px; */
-                    /* padding: 5px 5px 5px 5px; */
-                }
-                /* .row{ */
-                    /* width: 100%; */
-                    /* height: 80px; */
-                    /* margin: 10px 10px 10px 10px;
-                    padding: 5px 5px 5px 5px; */
-                    /* overflow-y: auto; */
-                    /* overflow-x: scroll; */
-                /* } */
+              
                 
 
                 </style>
@@ -46,7 +33,7 @@
             <div>
             <a href="{{ url('/customer/create') }}" class="btn btn-dark btn-sm float-left">Add Customer</a>
             </div>
-                <!-- <h3 class="card-title">PRODUCT</h3> -->
+               
                 <div class="card-tools">
                  
              </div>
@@ -60,8 +47,8 @@
             @endif
             <div class="row1">
                 <div class="col-md-20">
-                    <table class="table table-bordered table-hover">
-                        <thead>
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>ID</th>
                                 <th>NAME</th>

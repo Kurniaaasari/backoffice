@@ -4,7 +4,7 @@
 <style> 
 .table{
                     width: 100%;
-                    margin-top: 20px;
+                    margin-top: 10px;
                     border-collapse: collapse;
                 }
                 .table th, .table td{
@@ -41,12 +41,15 @@
             @endif
             <div class="row1">
                 <div class="col-md-20">
-                    <table class="table table-bordered table-hover">
-                        <thead>
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>ID</th>
-                                <th>NAME</th>
+                                <th>CUSTOMER NAME</th>
                                 <th>PRODUCT</th>
+                                <th>MATERIAL</th>
+                                <th>FINISH</th>
+                                <th>PRICE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,7 +58,16 @@
                             <tr>
                                 <td>{{ $row->id_wishlist}}</td>
                                 <td>{{ $row->name}}</td>
+<<<<<<< Updated upstream
                                 <td>{{ $row->name_product}}</td> 
+=======
+                                <td>{{ $row->name_product}}</td>
+                                <td>{{ $row->material}}</td>
+                                <td>{{ $row->finish}}</td>
+                                <td>{{ $row->price}}</td>
+                                
+                            
+>>>>>>> Stashed changes
                             </tr>
                             @endforeach
                             

@@ -106,7 +106,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('payment')}}" class="nav-link">
+                <a href="{{URL::to('detailorder')}}" class="nav-link">
                   <i class="fa nav-icon"></i>
                   <p>Detail Order</p>
                 </a>

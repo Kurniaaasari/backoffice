@@ -29,8 +29,6 @@
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
-            <div>
-            </div>
                 <div class="card-tools">
              </div>
          </div>
@@ -57,20 +55,7 @@
                             <tr>
                                 <td>{{ $row->id_wishlist}}</td>
                                 <td>{{ $row->name}}</td>
-                                <td>{{ $row->name_product}}</td>
-                                
-                                <!-- <td class="text-center">
-                                    <form method="POST" action="{{ URL::to('/address/'.$address['id_address']) }}">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="_method" value="DELETE" />
-                                        <div class="btn-group">
-                                             <a class="btn btn-info" href="{{ URL::to('/customer/show'.$customer['id_customer']) }}"><i class="fa fa-eye"></i></a> -->
-                                            <!-- <a class="btn btn-success" href="{{ URL::to('/address/'.$address['id_address'].'/edit') }}"><i class="fa fa-pencil"></i></a>
-
-                                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                        </div>
-                                    </form>
-                                </td> --> 
+                                <td>{{ $row->name_product}}</td> 
                             </tr>
                             @endforeach
                             

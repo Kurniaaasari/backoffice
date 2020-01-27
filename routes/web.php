@@ -19,5 +19,6 @@ Route::get('/admin', 'AdminController@index');
 Route::resource('product','ProductController');
 Route::resource('customer','CustomerController');
 Auth::routes();
-Route::get('/wishlist','WishlistController@index');
+Route::resource('wishlist','WishlistController');
+Route::resource('address','AddressController');
 Route::get('/home', 'HomeController@index')->name('home');

@@ -15,11 +15,9 @@ class CreateAddressTable extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->increments('id_address');
-            //$table->integer('id_customer')->unsigned();
-            //$table->foreign('id_customer')->references('id_customer')->on('customer');
-            $table->string('address1');
-            $table->string('address2');
-            $table->string('address3');
+            $table->integer('id_customer')->unsigned();
+            $table->foreign('id_customer')->references('id_customer')->on('customer');
+            $table->string('address');
             $table->timestamps();
         });
     }

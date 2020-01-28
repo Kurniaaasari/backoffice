@@ -1,10 +1,10 @@
-@extends('wishlist/wishlist')
+@extends('order/order')
 @section('content')
 
 <style> 
 .table{
                     width: 100%;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     border-collapse: collapse;
                 }
                 .table th, .table td{
@@ -41,27 +41,31 @@
             @endif
             <div class="row1">
                 <div class="col-md-20">
-                    <table class="table">
-                        <thead class="thead-dark">
+                    <table class="table table-bordered table-hover">
+                        <thead>
                             <tr class="text-center">
                                 <th>ID</th>
-                                <th>CUSTOMER NAME</th>
-                                <th>PRODUCT</th>
-                                <th>MATERIAL</th>
-                                <th>FINISH</th>
-                                <th>PRICE</th>
+                                <th>NAME</th>
+                                <th>EMAIL</th>
+                                <th>NUMBER PHONE</th>
+                                <th>ADDRESS</th>
+                                <th>TOTAL PAYMENT</th>
+                                <th>DATE ORDER</th>
+                                <th>STATUS</th>
                             </tr>
                         </thead>
                         <tbody>
                         
                             @foreach($data as $row)
                             <tr>
-                                <td>{{ $row->id_wishlist}}</td>
+                                <td>{{ $row->id_order}}</td>
                                 <td>{{ $row->name}}</td>
-                                <td>{{ $row->name_product}}</td> 
-                                <td>{{ $row->material}}</td>
-                                <td>{{ $row->finish}}</td>
-                                <td>$ {{ $row->price}}</td>
+                                <td>{{ $row->email}}</td>
+                                <td>{{ $row->no_phone}}</td> 
+                                <td>{{ $row->address}}</td> 
+                                <td>$ {{ $row->total_payment}}</td> 
+                                <td>{{ $row->date_order}}</td> 
+                                <td>{{ $row->status}} </td> 
                             </tr>
                             @endforeach
                             

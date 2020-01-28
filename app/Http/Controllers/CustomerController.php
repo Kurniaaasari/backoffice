@@ -53,7 +53,7 @@ class CustomerController extends Controller
         $rules =[
             'name'=>'required',
             'address'=>'required',
-            'no_phone'=>'required|integer',
+            'no_phone'=>'required',
             'email'=>'required',
             'password'=>'required',
         ];
@@ -135,7 +135,7 @@ class CustomerController extends Controller
             $rules =[
                 'name'=>'required',
                 'address'=>'required',
-                'no_phone'=>'required|integer',
+                'no_phone'=>'required',
                 'email'=>'required',
                 'password'=>'required',
             ];

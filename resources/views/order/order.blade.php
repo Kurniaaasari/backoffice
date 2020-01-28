@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Christopher Guy | Data WISHLIST</title>
+  <title>Christopher Guy | DATA ORDER</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('lte/plugins/font-awesome/css/font-awesome.min.css')}}">
@@ -38,11 +38,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Navbar -->
-  @include('wishlist/header')
+  @include('order/header')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('wishlist/sidebar')
+  @include('order/sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -51,12 +51,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row1 mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">DATA WISHLIST</h1>
+            <h1 class="m-0 text-dark">DATA ORDER</h1>
           </div><!-- /.col -->
           <div >
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{URL::to('admin')}}">Home</a></li>
-              <li class="breadcrumb-item active">Wishlist</li>
+              <li class="breadcrumb-item active">Order</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  @include('wishlist/footer')
+  @include('order/footer')
 </div>
 <!-- ./wrapper -->
 

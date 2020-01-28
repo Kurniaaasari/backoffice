@@ -21,4 +21,6 @@ Route::resource('customer','CustomerController');
 Auth::routes();
 Route::resource('wishlist','WishlistController');
 Route::resource('address','AddressController');
+Route::resource('order','OrderController');
+Route::resource('payment','PaymentController');
 Route::get('/home', 'HomeController@index')->name('home');

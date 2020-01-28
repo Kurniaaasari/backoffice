@@ -1,4 +1,4 @@
-@extends('wishlist/wishlist')
+@extends('payment/payment')
 @section('content')
 
 <style> 
@@ -45,23 +45,19 @@
                         <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>ID</th>
-                                <th>CUSTOMER NAME</th>
-                                <th>PRODUCT</th>
-                                <th>MATERIAL</th>
-                                <th>FINISH</th>
-                                <th>PRICE</th>
+                                <th>PAYMENT CONFIRM</th>
+                                <th>DATE PAYMENT</th>
+                                <th>ID ORDER</th>
                             </tr>
                         </thead>
                         <tbody>
                         
                             @foreach($data as $row)
                             <tr>
-                                <td>{{ $row->id_wishlist}}</td>
-                                <td>{{ $row->name}}</td>
-                                <td>{{ $row->name_product}}</td> 
-                                <td>{{ $row->material}}</td>
-                                <td>{{ $row->finish}}</td>
-                                <td>$ {{ $row->price}}</td>
+                                <td>{{ $row->id_payment}}</td>
+                                <td class="text-center"><img src="{{ asset('storage/'.$payment['payment_confirm']) }}" width="100"/></td>
+                                <td>{{ $row->created_at}}</td> 
+                                <td>{{ $row->id_order}}</td>
                             </tr>
                             @endforeach
                             

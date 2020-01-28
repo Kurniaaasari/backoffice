@@ -22,3 +22,17 @@ Auth::routes();
 Route::resource('wishlist','WishlistController');
 Route::resource('address','AddressController');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('view-data', 'AuthorizationController@viewData');
+
+Route::get('create-data', 'AuthorizationController@createData');
+
+Route::get('edit-data', 'AuthorizationController@editData');
+
+Route::get('update-data', 'AuthorizationController@updateData');
+
+Route::get('delete-data', 'AuthorizationController@deleteData');

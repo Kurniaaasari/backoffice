@@ -8,15 +8,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Christopher Guy</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+       {{--  <nav class="navbar navbar-default navbar-static-top"> --}}
+            {{-- <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Christopher Guy') }}
                     </a>
                 </div>
 
@@ -68,9 +68,9 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
-        </nav>
-
+            </div> --}}
+       {{--  </nav>
+ --}}
         @yield('content')
     </div>
 

@@ -18,9 +18,10 @@ Route::get('/', function () {
 Route::get('/admin', 'AdminController@index');
 Route::resource('product','ProductController');
 Route::resource('customer','CustomerController');
-Auth::routes();
-Route::resource('wishlist','WishlistController');
-Route::resource('address','AddressController');
 Route::resource('order','OrderController');
 Route::resource('payment','PaymentController');
+Route::get('/search','CustomerController@search');
+Auth::routes();
+Route::get('/wishlist','WishlistController@index');
+Route::resource('address','AddressController');
 Route::get('/home', 'HomeController@index')->name('home');

@@ -25,10 +25,14 @@
                
 
                 </style>
-<div class="row">
+<!-- <div class="row"> -->
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
+            <form class="form-inline md-2 float-right" method="get" action="{{url('customer/search')}}">
+            <input class="form-control mr-sm-2" type="text" name="q">
+            <button class="btn btn-navbar"><input type="submit" value="Search">
+            </form>
                 <div class="card-tools">
              </div>
          </div>
@@ -58,10 +62,12 @@
                             <tr>
                                 <td>{{ $row->id_wishlist}}</td>
                                 <td>{{ $row->name}}</td>
-                                <td>{{ $row->name_product}}</td> 
+                                <td>{{ $row->name_product}}</td>
                                 <td>{{ $row->material}}</td>
                                 <td>{{ $row->finish}}</td>
-                                <td>$ {{ $row->price}}</td>
+                                <td>{{ $row->price}}</td>
+                                
+                            
                             </tr>
                             @endforeach
                             

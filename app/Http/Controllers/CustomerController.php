@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Redirect;
 use Session;
 
@@ -101,14 +102,11 @@ class CustomerController extends Controller
      */
     public function show($id_customer)
     {
-        //
-        $customer=\App\Customer::find($id_customer);
-        $da=['customer'=>$customer];
-        return view('customer/show')->with($da);
+      
     }
 
     /**
-     * Show the form for editing the specified resource.
+  
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -170,8 +168,8 @@ class CustomerController extends Controller
                 return Redirect::to('customer');
             
     }
-}
 
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -187,6 +185,18 @@ class CustomerController extends Controller
         Session::flash('message','Barang Dihapus');
         return Redirect::to('customer');
     }
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $q = DB::table('customer')->where('name','like','%'.$search.'%')->paginate(5);
+        return view('search',['search'=>$q]);
+   
 }
-
+      
+}

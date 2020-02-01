@@ -10,12 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//route Admin
 Route::get('/', function () {
-    return view('welcome');
-});
-
+    return view('welcome');});
 Route::get('/admin', 'AdminController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+//route sidebar
 Route::resource('product','ProductController');
 Route::resource('customer','CustomerController');
 Route::resource('order','OrderController');
@@ -24,4 +24,6 @@ Route::get('/search','CustomerController@search');
 Auth::routes();
 Route::get('/wishlist','WishlistController@index');
 Route::resource('address','AddressController');
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+

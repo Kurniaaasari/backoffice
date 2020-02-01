@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use APP\Product;
 use Redirect;
 use Session;
 
@@ -27,6 +28,7 @@ class ProductController extends Controller
         $product=\App\Product::all();
         $data=['product'=>$product];
         return view('product/index')->with($data);
+        
         
     }
 
@@ -55,40 +57,39 @@ class ProductController extends Controller
             'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
             'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
             'name_product'=>'required',
-            'description'=>'required',
+            'code_product'=>'required|integer',
+            'category'=>'required',
             'material'=>'required',
             'finish'=>'required',
             'width'=>'required',
             'height'=>'required',
             'dense'=>'required',
-            'detail1'=>'required',
+            'price'=>'required',
+            'stock'=>'required|integer',
+            'detail1'=>'required', 
             'detail2'=>'required',
             'detail3'=>'required',
-            'price'=>'required',
-            'category'=>'required',
-            'code_product'=>'required|integer',
-            'stock'=>'required|integer',
+            'description'=>'required',
         ];
  
         $pesan=[
             'image1File.required'=>'Gambar Tidak Boleh Kosong',
             'image2File.required'=>'Gambar Tidak Boleh Kosong',
             'image3File.required'=>'Gambar Tidak Boleh Kosong',
+            'code_product.required'=>'Tidak Boleh Kosong',
             'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
-            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
+            'category.required'=>'Tidak Boleh Kosong',
             'material.required'=>'Material Tidak Boleh Kosong',
             'finish.required'=>'Finish Tidak Boleh Kosong',
             'width.required'=>'Width Tidak Boleh Kosong',
             'height.required'=>'Height Tidak Boleh Kosong',
+            'price.required'=>'Harga Barang Tidak Boleh Kosong',
             'dense.required'=>'Dense Tidak Boleh Kosong',
+            'stock.required'=>'Tidak Boleh Kosong',
             'detail1.required'=>'Detail Tidak Boleh Kosong',
             'detail2.required'=>'Detail Tidak Boleh Kosong',
             'detail3.required'=>'Detail Tidak Boleh Kosong',
-            'price.required'=>'Harga Barang Tidak Boleh Kosong',
-            'category.required'=>'Tidak Boleh Kosong',
-            'code_product.required'=>'Tidak Boleh Kosong',
-            'stock.required'=>'Tidak Boleh Kosong',
-
+            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
         ];
  
         $validator=Validator::make(Input::all(),$rules,$pesan);
@@ -107,25 +108,23 @@ class ProductController extends Controller
             $image3=$request->file('image3File')->store('productImages','public');
              
             $product=new \App\Product;
- 
             $product->image1=$image1;
             $product->image2=$image2;
             $product->image3=$image3;
+            $product->code_product=Input::get('code_product');
             $product->name_product=Input::get('name_product');
-            $product->description=Input::get('description');
+            $product->category=Input::get('category');
             $product->material=Input::get('material');
             $product->finish=Input::get('finish');
             $product->width=Input::get('width');
             $product->height=Input::get('height');
             $product->dense=Input::get('dense');
+            $product->price=Input::get('price');
+            $product->stock=Input::get('stock');
             $product->detail1=Input::get('detail1');
             $product->detail2=Input::get('detail2');
             $product->detail3=Input::get('detail3');
-            $product->price=Input::get('price');
-            $product->category=Input::get('category');
-            $product->code_product=Input::get('code_product');
-            $product->stock=Input::get('stock');
-           
+            $product->description=Input::get('description');
             $product->save();
  
             Session::flash('message','Product Stored');

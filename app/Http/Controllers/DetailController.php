@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
-use Redirect;
-use Session;
-use DB;
 
-class PaymentController extends Controller
+class DetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +14,6 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        $data = DB::table('payment')
-              ->join('order','order.id_order','=', 'payment.id_order')
-              ->select('payment.id_payment','payment.payment_confirm','payment.created_at','order.date_order','order.total_payment')
-              ->get();     
-              return view('payment.index', compact('data'));
     }
 
     /**

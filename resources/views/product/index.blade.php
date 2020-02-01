@@ -8,26 +8,25 @@
                 }
                 .table th, .table td{
                     border: 1px solid #696969;
-                    padding: 10px;
+                    padding: 5px;
                     /* font-family: arial; */
                     color: #000000;
                 }
-                .table th{
-                    font-size: 14px;
+                .table th{ 
+                    font-size: 15px;
                     background: #778899;
-                }
+                } */
                 .table td{
                     background: #F8F8FF;
-                    padding: 10px 10px;
+                    padding: 1px 1px;
                     font-size: 15px;
                 }
                 .card1{
                     width: 100%;
                     /* height: 80px; */
                     margin: 10px 10px 10px 10px;
-                    padding: 5px 5px 5px 5px;
-                    /* overflow-y: auto;
-                    overflow-x: scroll; */
+                    padding: 1px 1px 1px 1px;
+                  
                 }
                 .row{
                     width: 100%;
@@ -36,21 +35,34 @@
                     padding: 5px 5px 5px 5px; */
                     overflow-y: auto;
                     overflow-x: scroll;
-                } -->
+                }
                 
 
-                </style>
-<div class="row">
-    <div class="col-20">
-        <div class="card1">
+</style>
+
+<div class="row">  
+     <div class="col-sm-10> 
+         <div class="card1 "> 
             <div class="card-header">
-            <div>
-            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float-left">Add Product</a>
-            </div>
-                <!-- <h3 class="card-title">PRODUCT</h3> -->
-                <div class="card-tools">
-                 
+            <div class="btn-group">
+
+            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float">Add Product</a>
+        <div>
+            <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="" type="submit">
+          <i class="fa fa-search"></i>
+          </button>
+          <div class="card-tools">
              </div>
+        </div>
+      </div>
+    </form>
+            </div>
+            </div>
+               
          </div>
          <div class="card-body">
             @if (Session::has('message'))

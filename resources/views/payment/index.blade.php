@@ -25,10 +25,14 @@
                
 
                 </style>
-<div class="row">
+<!-- <div class="row"> -->
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
+            <form class="form-inline md-2 float-right" method="get" action="{{url('customer/search')}}">
+            <input class="form-control mr-sm-2" type="text" name="q">
+            <button class="btn btn-navbar"><input type="submit" value="Search">
+            </form>
                 <div class="card-tools">
              </div>
          </div>
@@ -47,7 +51,8 @@
                                 <th>ID</th>
                                 <th>PAYMENT CONFIRM</th>
                                 <th>DATE PAYMENT</th>
-                                <th>ID ORDER</th>
+                                <th>DATE ORDER</th>
+                                <th>TOTAL PAYMENT</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,9 +60,10 @@
                             @foreach($data as $row)
                             <tr>
                                 <td>{{ $row->id_payment}}</td>
-                                <td class="text-center"><img src="{{ asset('storage/'.$payment['payment_confirm']) }}" width="100"/></td>
+                                <td>{{ $row->payment_confirm}}</td>
                                 <td>{{ $row->created_at}}</td> 
-                                <td>{{ $row->id_order}}</td>
+                                <td>{{ $row->date_order}}</td>
+                                <td>$ {{ $row->total_payment}}</td>
                             </tr>
                             @endforeach
                             

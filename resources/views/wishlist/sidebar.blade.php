@@ -24,97 +24,42 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <!-- <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-                Data Kategori
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-                Data Produk
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-                Data user
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-                Wishlist
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-                Data Order
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-dashboard"></i>
-              <p>
-                Data Payment
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a> -->
             <!-- Nyoba Dulu -->
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <li class="nav-item">
                 <a href="{{URL::to('admin')}}" class="nav-link">
-                <i class="fa nav-icon"></i>
+                <i class="fa fa-dashboard"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
-             
               <li class="nav-item">
                 <a href="{{URL::to('product')}}" class="nav-link">
-                <i class="fa nav-icon"></i>
+                <i class="fa fa-product-hunt"></i>
                   <p>Data Product</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{URL::to('customer')}}" class="nav-link">
-                <i class="fa nav-icon"></i>
+                <i class="fa fa-user-circle-o"></i>
                   <p>Data Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('whistlist')}}" class="nav-link active">
-                <i class="fa nav-icon"></i>
+                <a href="{{URL::to('wishlist')}}" class="nav-link active">
+                <i class="fa fa-heart-o"></i>
                   <p>Wishlist</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{URL::to('order')}}" class="nav-link">
-                <i class="fa nav-icon"></i>
+                <i class="fa fa-shopping-cart"></i>
                   <p>Data Order</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{URL::to('payment')}}" class="nav-link">
-                  <i class="fa nav-icon"></i>
+                <i class="fa fa-credit-card"></i>
                   <p>Data Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{URL::to('payment')}}" class="nav-link">
-                  <i class="fa nav-icon"></i>
-                  <p>Detail Order</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{URL::to('address')}}" class="nav-link">
-                  <i class="fa nav-icon"></i>
-                  <p>Address</p>
                 </a>
               </li>
             </ul> 

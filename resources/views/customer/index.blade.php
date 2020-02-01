@@ -2,50 +2,55 @@
 @section('content')
 
 <style> 
- .table{ 
+.table{
                     width: 100%;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     border-collapse: collapse;
-                } 
-               .table,.table th, .table td{
-                    border: 1px solid #ddd;
-                    /* border: 1px solid black; */
-                    padding: 8px;
-                    /* border: 1px solid #696969; */
-                    /* padding: 10px; */
-                    font-family: arial;
+                }
+                .table th, .table td{
+                    border: 1px solid #696969;
+                    padding: 10px;
+                    /* font-family: arial; */
                     color: #000000;
-                } 
+                }
                 .table th{
-                    /* width:100%; */
                     font-size: 14px;
                     background: #778899;
                 }
-                 .table td{ 
-                    /* width:100%; */
-                    background: #F8F8FA;
+                .table td{
+                    background: #F8F8FF;
                     padding: 10px 10px;
                     font-size: 15px;
                 }
               
- </style>            
-<!-- <div class="row"> -->
+                
+
+                </style>
+<div class="row">
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
             <div>
             <a href="{{ url('/customer/create') }}" class="btn btn-dark btn-sm float-left">Add Customer</a>
-            <form class="form-inline md-2 float-right" method="get" action="{{url('customer/search')}}">
-            <input class="form-control mr-sm-2" type="text" name="q">
+
+            <div class="container">
+            <form class="form-inline md-2 float-right" method="POST" action="{{url('customer/search')}}" role="search">
+            <div class="input-group input-group-sm">
+            {{ csrf_field() }}
+            <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
+            <span class="input-group-btn">
             <button class="btn btn-navbar"><input type="submit" value="Search">
+            </button>
+            </span>
+            </div>
             </form>
+            </div>
             </div>
             <div class="card-tools">
             </div>
         </div>
-    </div>
 
-<div class="card-body">
+         <div class="card-body">
             @if (Session::has('message'))
             <div id="alert-msg" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -68,12 +73,12 @@
                         </thead>
                         <tbody>
                         
+                            @if(isset($customer))
                             @foreach($customer as $customer)
                             <tr>
                             <td class="text-center">{{ $customer['id_customer'] }}</td>
                                 <td>{{ $customer['name'] }}</td>
-                                <td>{{ $customer['address'] }}<br>
-                                <a class="btn-sm btn-success" href=" "><font size="2px">Other Address</font></a></td>
+                                <td>{{ $customer['address'] }}</td>
                                 <td>{{ $customer['no_phone'] }}</td>
                                 <td>{{ $customer['email'] }}</td>
                                 <td>{{ $customer['password'] }}</td>
@@ -92,7 +97,9 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+                            @else
+                            {{$message}}
+                            @endif
                         </tbody>
                     </table>
                 </div>

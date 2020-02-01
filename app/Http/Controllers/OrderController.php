@@ -92,4 +92,28 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+
+    $q = Input::get ( 'q' );
+    $data = \App\Order::where('total_payment','LIKE','%'.$q.'%')
+                            ->orWhere('date_order','LIKE','%'.$q.'%')
+                            ->orWhere('status','LIKE','%'.$q.'%')
+                            ->get();
+
+    $data = \App\Customer::where('name','LIKE','%'.$q.'%')
+                            ->orWhere('email','LIKE','%'.$q.'%')
+                            ->orWhere('no_phone','LIKE','%'.$q.'%')
+                            ->orWhere('address','LIKE','%'.$q.'%')
+                            ->get();
+
+    $data = \App\Address::where('address','LIKE','%'.$q.'%')
+                            ->get();
+    if(count($data) > 0)
+        return view('order/index')
+                ->withData($data)->withQuery ( $q );
+    else 
+        return view ('order/index')->withMessage('No Details found. Try to search again !');
+    }
 }

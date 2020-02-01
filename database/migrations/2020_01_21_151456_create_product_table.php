@@ -25,7 +25,7 @@ class CreateProductTable extends Migration
             $table->string('dense');
             $table->string('material');
             $table->enum('finish',['tabac','black']);
-            $table->float('price', 8, 3);
+            $table->float('price');
             $table->string('detail1');
             $table->string('detail2');
             $table->string('detail3');

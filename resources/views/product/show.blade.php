@@ -17,7 +17,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name_product">NAME PRODUCT</label>
+<<<<<<< Updated upstream
+                                <input id_product="name_product" type="" value= "{{$product['name_product']}}" class="form-control" disabled />
+=======
                                 <input id_product="name_product" type="text" value= "{{ $product['name_product'] }}"  class="form-control" disabled />
+>>>>>>> Stashed changes
                             </div>
                             <div class="form-group">
                                 <label for="dimension">DIMENSION</label>
@@ -78,6 +82,10 @@
                             <div class="form-group">
                                 <label for="description">DESCRRIPTION</label>
                                 <input id_product="description" type="text" value="{{ $product['description'] }}" class="form-control" disabled />
+<<<<<<< Updated upstream
+                                <!-- {{ Form::submit('Save', ['class' => 'btn btn-secondary pull-right']) }} -->
+=======
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>

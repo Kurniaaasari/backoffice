@@ -8,25 +8,26 @@
                 }
                 .table th, .table td{
                     border: 1px solid #696969;
-                    padding: 5px;
+                    padding: 10px;
                     /* font-family: arial; */
                     color: #000000;
                 }
-                .table th{ 
-                    font-size: 15px;
+                .table th{
+                    font-size: 14px;
                     background: #778899;
-                } */
+                }
                 .table td{
                     background: #F8F8FF;
-                    padding: 1px 1px;
+                    padding: 10px 10px;
                     font-size: 15px;
                 }
                 .card1{
                     width: 100%;
                     /* height: 80px; */
                     margin: 10px 10px 10px 10px;
-                    padding: 1px 1px 1px 1px;
-                  
+                    padding: 5px 5px 5px 5px;
+                    /* overflow-y: auto;
+                    overflow-x: scroll; */
                 }
                 .row{
                     width: 100%;
@@ -35,35 +36,32 @@
                     padding: 5px 5px 5px 5px; */
                     overflow-y: auto;
                     overflow-x: scroll;
-                }
+                } -->
                 
 
-</style>
-
-<div class="row">  
-     <div class="col-sm-10> 
-         <div class="card1 "> 
+                </style>
+<div class="row">
+    <div class="col-20">
+        <div class="card1">
             <div class="card-header">
-            <div class="btn-group">
-
-            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float">Add Product</a>
-        <div>
-            <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="" type="submit">
-          <i class="fa fa-search"></i>
+            <div>
+            <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float-left">Add Product</a>
+             <div class="container">
+            <form class="form-inline ml-3" action="{{ url('/product/search') }}" method="POST" role="search">
+            {{ csrf_field() }}
+            <div class="input-group input-group-sm">
+        <input class="form-control" name="q" type="text" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
+        <span class="input-group-btn">
+            <button class="btn btn-navbar" type="submit">
+            <i class="fa fa-search"></i>
           </button>
-          <div class="card-tools">
-             </div>
+        </span>
+        </div>
+         <!-- <h3 class="card-title">PRODUCT</h3> -->      
         </div>
       </div>
     </form>
-            </div>
-            </div>
-               
-         </div>
+    </div>
          <div class="card-body">
             @if (Session::has('message'))
             <div id="alert-msg" class="alert alert-success alert-dismissible">
@@ -99,7 +97,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+                            
+                            @if(isset($product))
                             @foreach($product as $product)
                             <tr>
                                 <td class="text-center">{{ $product['id_product'] }}</td>
@@ -135,7 +134,9 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+                            @else
+                            {{$message}}
+                            @endif
                         </tbody>
                     </table>
                     </div>

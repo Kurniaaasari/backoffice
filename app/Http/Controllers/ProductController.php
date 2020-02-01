@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
-use APP\Product;
 use Redirect;
 use Session;
 
@@ -28,7 +27,6 @@ class ProductController extends Controller
         $product=\App\Product::all();
         $data=['product'=>$product];
         return view('product/index')->with($data);
-        
         
     }
 
@@ -57,39 +55,40 @@ class ProductController extends Controller
             'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
             'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
             'name_product'=>'required',
-            'code_product'=>'required|integer',
-            'category'=>'required',
+            'description'=>'required',
             'material'=>'required',
             'finish'=>'required',
             'width'=>'required',
             'height'=>'required',
             'dense'=>'required',
-            'price'=>'required',
-            'stock'=>'required|integer',
-            'detail1'=>'required', 
+            'detail1'=>'required',
             'detail2'=>'required',
             'detail3'=>'required',
-            'description'=>'required',
+            'price'=>'required',
+            'category'=>'required',
+            'code_product'=>'required|integer',
+            'stock'=>'required|integer',
         ];
  
         $pesan=[
             'image1File.required'=>'Gambar Tidak Boleh Kosong',
             'image2File.required'=>'Gambar Tidak Boleh Kosong',
             'image3File.required'=>'Gambar Tidak Boleh Kosong',
-            'code_product.required'=>'Tidak Boleh Kosong',
             'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
-            'category.required'=>'Tidak Boleh Kosong',
+            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
             'material.required'=>'Material Tidak Boleh Kosong',
             'finish.required'=>'Finish Tidak Boleh Kosong',
             'width.required'=>'Width Tidak Boleh Kosong',
             'height.required'=>'Height Tidak Boleh Kosong',
-            'price.required'=>'Harga Barang Tidak Boleh Kosong',
             'dense.required'=>'Dense Tidak Boleh Kosong',
-            'stock.required'=>'Tidak Boleh Kosong',
             'detail1.required'=>'Detail Tidak Boleh Kosong',
             'detail2.required'=>'Detail Tidak Boleh Kosong',
             'detail3.required'=>'Detail Tidak Boleh Kosong',
-            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
+            'price.required'=>'Harga Barang Tidak Boleh Kosong',
+            'category.required'=>'Tidak Boleh Kosong',
+            'code_product.required'=>'Tidak Boleh Kosong',
+            'stock.required'=>'Tidak Boleh Kosong',
+
         ];
  
         $validator=Validator::make(Input::all(),$rules,$pesan);
@@ -108,23 +107,25 @@ class ProductController extends Controller
             $image3=$request->file('image3File')->store('productImages','public');
              
             $product=new \App\Product;
+ 
             $product->image1=$image1;
             $product->image2=$image2;
             $product->image3=$image3;
-            $product->code_product=Input::get('code_product');
             $product->name_product=Input::get('name_product');
-            $product->category=Input::get('category');
+            $product->description=Input::get('description');
             $product->material=Input::get('material');
             $product->finish=Input::get('finish');
             $product->width=Input::get('width');
             $product->height=Input::get('height');
             $product->dense=Input::get('dense');
-            $product->price=Input::get('price');
-            $product->stock=Input::get('stock');
             $product->detail1=Input::get('detail1');
             $product->detail2=Input::get('detail2');
             $product->detail3=Input::get('detail3');
-            $product->description=Input::get('description');
+            $product->price=Input::get('price');
+            $product->category=Input::get('category');
+            $product->code_product=Input::get('code_product');
+            $product->stock=Input::get('stock');
+           
             $product->save();
  
             Session::flash('message','Product Stored');
@@ -173,9 +174,9 @@ class ProductController extends Controller
     {
             //
             $rules =[
-                'image1File'=>'required|mimes:jpg,png,jpeg,JPG',
-                'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
-                'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
+                'image1File'=>'mimes:jpg,png,jpeg,JPG',
+                'image2File'=>'mimes:jpg,png,jpeg,JPG',
+                'image3File'=>'mimes:jpg,png,jpeg,JPG',
                 'name_product'=>'required',
                 'description'=>'required',
                 'material'=>'required',
@@ -219,39 +220,39 @@ class ProductController extends Controller
                 return Redirect::to('product/'.$id_product.'/edit')
                 ->withErrors($validator);
     
-            }else{
-    
-                $image1="";
-    
-                if (!$request->file('image1File')) {
-                    
-                    $image1=Input::get('image1Path');
-                }else{
-                    $image1=$request->file('image1File')->store('productImages','public');                
+            }
                 
-                    $image2="";
-    
-                if (!$request->file('image2File')) {
-                    
-                    $image2=Input::get('image2Path');
-                }else{
-                    $image2=$request->file('image2File')->store('productImages','public');                
-               
-                    $image3="";
-    
-                if (!$request->file('image3File')) {
-                    
-                    $image3=Input::get('image3Path');
-                }else{
-                    $image3=$request->file('image3File')->store('productImages','public');                
-                }
+                 if ($request->has('image1File')) 
+                 {
+                     $image1=$request->file('image1File')->store('productImages','public');
+                 }
+
+                 if ($request->has('image2File')) 
+                 {
+                     $image1=$request->file('image2File')->store('productImages','public');
+                 }
+
+                 if ($request->has('image3File')) 
+                 {
+                     $image1=$request->file('image3File')->store('productImages','public');
+                 }
+                
             
     
                 $product=\App\Product::find($id_product);
-    
-                $product->image1=$image1;
+                
+                if (isset($image1)) 
+                {
+                     $product->image1=$image1;
+                } 
+                if (isset($image2)) 
+                {
                 $product->image2=$image2;
-                $product->image3=$image3;
+                } 
+                if (isset($image3)) 
+                {
+                    $product->image3=$image3;
+                }
                 $product->name_product=Input::get('name_product');
                 $product->description=Input::get('description');
                 $product->material=Input::get('material');
@@ -271,8 +272,7 @@ class ProductController extends Controller
                 return Redirect::to('product');
             
     }
-}
-}}
+
     /**
      * Remove the specified resource from storage.
      *
@@ -287,6 +287,32 @@ class ProductController extends Controller
 
         Session::flash('message','Barang Dihapus');
         return Redirect::to('product');
+    }
+
+     public function search()
+    {
+
+    $q = Input::get ( 'q' );
+    $product = \App\Product::where('name_product','LIKE','%'.$q.'%')
+                            ->orWhere('description','LIKE','%'.$q.'%')
+                            ->orWhere('material','LIKE','%'.$q.'%')
+                            ->orWhere('finish','LIKE','%'.$q.'%')
+                            ->orWhere('width','LIKE','%'.$q.'%')
+                            ->orWhere('height','LIKE','%'.$q.'%')
+                            ->orWhere('dense','LIKE','%'.$q.'%')
+                            ->orWhere('price','LIKE','%'.$q.'%')
+                            ->orWhere('category','LIKE','%'.$q.'%')
+                            ->orWhere('detail1','LIKE','%'.$q.'%')
+                            ->orWhere('detail2','LIKE','%'.$q.'%')
+                            ->orWhere('detail3','LIKE','%'.$q.'%')
+                            ->orWhere('code_product','LIKE','%'.$q.'%')
+                            ->orWhere('stock','LIKE','%'.$q.'%')
+                            ->get();
+    if(count($product) > 0)
+        return view('product/index')
+                ->withProduct($product)->withQuery ( $q );
+    else 
+        return view ('product/index')->withMessage('No Details found. Try to search again !');
     }
 
 }

@@ -56,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div >
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{URL::to('admin')}}">Home</a></li>
-              <li class="breadcrumb-item active">Address</li>
+              <li class="breadcrumb-item active">Customer</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

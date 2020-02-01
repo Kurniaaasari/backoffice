@@ -72,7 +72,8 @@
                             <tr>
                             <td class="text-center">{{ $customer['id_customer'] }}</td>
                                 <td>{{ $customer['name'] }}</td>
-                                <td>{{ $customer['address'] }}</td>
+                                <td>{{ $customer['address'] }}<br>
+                                <a class="btn-sm btn-success" href=" "><font size="2px">Other Address</font></a></td>
                                 <td>{{ $customer['no_phone'] }}</td>
                                 <td>{{ $customer['email'] }}</td>
                                 <td>{{ $customer['password'] }}</td>

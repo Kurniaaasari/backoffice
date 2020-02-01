@@ -21,9 +21,9 @@ class PaymentController extends Controller
         //
         $data = DB::table('payment')
               ->join('order','order.id_order','=', 'payment.id_order')
-              ->select('payment.id_payment','payment.payment_confirm','payment.created_at','order.id_order')
-              ->get();
-        return view('payment.index', compact('data'));
+              ->select('payment.id_payment','payment.payment_confirm','payment.created_at','order.date_order','order.total_payment')
+              ->get();     
+              return view('payment.index', compact('data'));
     }
 
     /**

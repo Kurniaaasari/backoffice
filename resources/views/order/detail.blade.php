@@ -1,10 +1,10 @@
-@extends('payment/payment')
+@extends('order/order')
 @section('content')
 
 <style> 
 .table{
                     width: 100%;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     border-collapse: collapse;
                 }
                 .table th, .table td{
@@ -33,6 +33,7 @@
             <input class="form-control mr-sm-2" type="text" name="q">
             <button class="btn btn-navbar"><input type="submit" value="Search">
             </form>
+
                 <div class="card-tools">
              </div>
          </div>
@@ -46,24 +47,31 @@
             <div class="row1">
                 <div class="col-md-20">
                     <table class="table">
-                        <thead class="thead-dark">
+                    <thead class="thead-dark">
+                      
                             <tr class="text-center">
                                 <th>ID</th>
-                                <th>PAYMENT CONFIRM</th>
-                                <th>DATE PAYMENT</th>
-                                <th>DATE ORDER</th>
+                                <th>NAME</th>
+                                <th>EMAIL</th>
+                                <th>NUMBER PHONE</th>
+                                <th>ADDRESS</th>
                                 <th>TOTAL PAYMENT</th>
+                                <th>DATE ORDER</th>
+                                <th>STATUS</th>
                             </tr>
                         </thead>
                         <tbody>
                         
                             @foreach($data as $row)
                             <tr>
-                                <td>{{ $row->id_payment}}</td>
-                                <td>{{ $row->payment_confirm}}</td>
-                                <td>{{ $row->created_at}}</td> 
-                                <td>{{ $row->date_order}}</td>
-                                <td>$ {{ $row->total_payment}}</td>
+                                <td>{{ $row->id_order}}</td>
+                                <td>{{ $row->name}}</td>
+                                <td>{{ $row->email}}</td>
+                                <td>{{ $row->no_phone}}</td> 
+                                <td>{{ $row->address}}</td> 
+                                <td>$ {{ $row->total_payment}}</td> 
+                                <td>{{ $row->date_order}}</td> 
+                                <td>{{ $row->status}} </td> 
                             </tr>
                             @endforeach
                             

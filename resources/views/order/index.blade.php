@@ -57,6 +57,7 @@
                                 <th>ADDRESS</th>
                                 <th>TOTAL PAYMENT</th>
                                 <th>DATE ORDER</th>
+                                <th>DETAIL</th>
                                 <th>STATUS</th>
                             </tr>
                         </thead>
@@ -71,7 +72,14 @@
                                 <td>{{ $row->address}}</td> 
                                 <td>$ {{ $row->total_payment}}</td> 
                                 <td>{{ $row->date_order}}</td> 
+                                <td class="text-center">
+                                        <div class="btn-group">
+                                            <a class="btn-sm btn-secondary" href=" "><font size="2px">Detail Order</font></a>
+                                        </div>
+                                    </form>
+                                </td>
                                 <td>{{ $row->status}} </td> 
+                                
                             </tr>
                             @endforeach
                             

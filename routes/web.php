@@ -24,6 +24,9 @@ Route::get('/search','CustomerController@search');
 Auth::routes();
 Route::get('/wishlist','WishlistController@index');
 Route::resource('address','AddressController');
+//route firebase
+Route::get('firebase','FirebaseController@index');
+Route::get('firebase-get-data', 'FirebaseController@getData');
 Auth::routes();
 
 

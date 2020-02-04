@@ -268,7 +268,7 @@ class ProductController extends Controller
                 $product->code_product=Input::get('code_product');
                 $product->stock=Input::get('stock');
                 $product->save();
-                Session::flash('message','Data Barang Berhasil Diubah');
+                Session::flash('message','Product Edited ');
                 return Redirect::to('product');
             
     }
@@ -284,8 +284,7 @@ class ProductController extends Controller
         //
         $product=\App\Product::find($id_product);
         $product->delete();
-
-        Session::flash('message','Barang Dihapus');
+        Session::flash('message','Product Deleted');
         return Redirect::to('product');
     }
 

@@ -80,19 +80,19 @@
                                 <th>IMAGE 2</th>
                                 <th>IMAGE 3</th>
                                 <th>NAME</th>
-                                <th>DESCRIPTION</th>
+                                <th>CODE</th>
+                                <th>CATEGORY</th>
                                 <th>MATERIAL</th>
                                 <th>FINISH</th>
                                 <th>WIDTH</th>
                                 <th>HEIGHT</th>
                                 <th>DENSE</th>
                                 <th>PRICE</th>
+                                <th>STOCK</th>
                                 <th>DETAIL 1</th>
                                 <th>DETAIL 2</th>
                                 <th>DETAIL 3</th>
-                                <th>CATEGORY</th>
-                                <th>CODE</th>
-                                <th>STOCK</th>
+                                <th>DESCRIPTION</th>
                                 <th>OPTION</th>
                             </tr>
                         </thead>
@@ -106,19 +106,20 @@
                                 <td class="text-center"><img src="{{ asset('storage/'.$product['image2']) }}" width="100"/></td>
                                 <td class="text-center"><img src="{{ asset('storage/'.$product['image3']) }}" width="100"/></td>
                                 <td>{{ $product['name_product'] }}</td>
-                                <td>{{ $product['description'] }}</td>
+                                <td>{{ $product['code_product'] }}</td>
+                                <td>{{ $product['category'] }}</td>
                                 <td>{{ $product['material'] }}</td>
                                 <td>{{ $product['finish'] }}</td>
                                 <td>{{ $product['width'] }}</td>
                                 <td>{{ $product['height'] }}</td>
                                 <td>{{ $product['dense'] }}</td>
                                 <td>$ {{ $product['price'] }}</td>
-                                <td>{{ $product['category'] }}</td>
+                                <td>{{ $product['stock'] }}</td>
                                 <td>{{ $product['detail1'] }}</td>
                                 <td>{{ $product['detail2'] }}</td>
                                 <td>{{ $product['detail3'] }}</td>
-                                <td>{{ $product['code_product'] }}</td>
-                                <td>{{ $product['stock'] }}</td>
+                                <td>{{ $product['description'] }}</td>
+                              
                                 <td class="text-center">
                                     <form method="POST" action="{{ URL::to('/product/'.$product['id_product']) }}">
                                         {{ csrf_field() }}

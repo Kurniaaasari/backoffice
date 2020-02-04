@@ -1,48 +1,9 @@
 @extends('product/product')
 @section('content')
-<style>
-.table{
-                    width: 100%;
-                    margin-top: 20px;
-                    border-collapse: collapse;
-                }
-                .table th, .table td{
-                    border: 1px solid #696969;
-                    padding: 10px;
-                    /* font-family: arial; */
-                    color: #000000;
-                }
-                .table th{
-                    font-size: 14px;
-                    background: #778899;
-                }
-                .table td{
-                    background: #F8F8FF;
-                    padding: 10px 10px;
-                    font-size: 15px;
-                }
-                .card1{
-                    width: 100%;
-                    /* height: 80px; */
-                    margin: 10px 10px 10px 10px;
-                    padding: 5px 5px 5px 5px;
-                    /* overflow-y: auto;
-                    overflow-x: scroll; */
-                }
-                .row{
-                    width: 100%;
-                    /* height: 80px; */
-                    /* margin: 10px 10px 10px 10px;
-                    padding: 5px 5px 5px 5px; */
-                    overflow-y: auto;
-                    overflow-x: scroll;
-                } -->
-                
 
-                </style>
-<div class="row">
-    <div class="col-20">
-        <div class="card1">
+{{-- <div class="row"> --}}
+    <div class="col-12">
+        <div class="card">
             <div class="card-header">
             <div>
             <a href="{{ url('/product/create') }}" class="btn btn-dark btn-sm float-left">Add Product</a>
@@ -56,7 +17,7 @@
             <i class="fa fa-search"></i>
           </button>
         </span>
-        </div>
+            </div>
          <!-- <h3 class="card-title">PRODUCT</h3> -->      
         </div>
       </div>
@@ -69,9 +30,8 @@
                 {{ Session::get('message') }}
             </div>
             @endif
-            <div class="row1">
-                <div class="col-md-20">
-                    <div class=".table-responsive">
+            <div class="row">
+                <div class="col-md-12 table-responsive">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
@@ -136,7 +96,11 @@
                             </tr>
                             @endforeach
                             @else
-                            {{$message}}
+                            <tr>
+                                <td colspan="19">
+                                    {{$message}}
+                                </td>
+                            </tr>
                             @endif
                         </tbody>
                     </table>

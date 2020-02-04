@@ -17,7 +17,7 @@ class CreateCustomerTable extends Migration
             $table->increments('id_customer');
             $table->text('name');
             $table->text('address');
-            $table->bigInteger('no_phone');
+            $table->string('no_phone');
             $table->text('email');
             $table->text('password');
             $table->timestamps();

@@ -1,34 +1,11 @@
 @extends('customer/customer')
 @section('content')
 
-<style> 
-.table{
-                    width: 100%;
-                    margin-top: 20px;
-                    border-collapse: collapse;
-                }
-                .table th, .table td{
-                    border: 1px solid #696969;
-                    padding: 10px;
-                    /* font-family: arial; */
-                    color: #000000;
-                }
-                .table th{
-                    font-size: 14px;
-                    background: #778899;
-                }
-                .table td{
-                    background: #F8F8FF;
-                    padding: 10px 10px;
-                    font-size: 15px;
-                }
-              
-                
 
-                </style>
+
 <div class="row">
-    <div class="col-20">
-        <div class="card1">
+    <div class="col-12">
+        <div class="card">
             <div class="card-header">
             <div>
             <a href="{{ url('/customer/create') }}" class="btn btn-dark btn-sm float-left">Add Customer</a>
@@ -57,8 +34,8 @@
                 {{ Session::get('message') }}
             </div>
             @endif
-            <div class="row1">
-                <div class="col-md-20">
+            <div class="row">
+                <div class="col-md-12 table-responsive">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">

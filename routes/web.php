@@ -21,16 +21,16 @@ Route::resource('customer','CustomerController');
 Auth::routes();
 Route::resource('wishlist','WishlistController');
 Route::resource('address','AddressController');
-<<<<<<< HEAD
+
 Route::resource('order','OrderController');
 Route::resource('payment','PaymentController');
 Route::get('/home', 'HomeController@index')->name('home');
 
-=======
+
 //route firebase
 Route::get('firebase','FirebaseController@index');
 Route::get('firebase-get-data', 'FirebaseController@getData');
->>>>>>> master
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Redirect;
+use Session;
+use DB;
 
 class DetailController extends Controller
 {
@@ -14,6 +19,12 @@ class DetailController extends Controller
     public function index()
     {
         //
+        $detail = DB::table('detail')
+                ->join('order', 'order.id_order', '=', 'detail.id_order')
+                ->join('product', 'product.id_product', '=', 'detail.id_product')
+                ->select('detail.quantity', 'product.name_product', 'product.price', 'order.total_payment')
+                ->get();
+        return view('detail.index', compact('detail'));        
     }
 
     /**

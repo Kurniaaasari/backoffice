@@ -41,8 +41,8 @@
 </style>
 
 <div class="row">  
-     <div class="col-sm-10> 
-         <div class="card1 "> 
+     <div class="col-sm-10"> 
+         <div class="card1"> 
             <div class="card-header">
             <div class="btn-group">
 
@@ -126,9 +126,7 @@
                                         <input type="hidden" name="_method" value="DELETE" />
                                         <div class="btn-group">
                                             <!-- <a class="btn btn-info" href="{{ URL::to('/product/show'.$product['id_product']) }}"><i class="fa fa-eye"></i></a> -->
-
                                             <a class="btn btn-success" href="{{ URL::to('/product/'.$product['id_product'].'/edit') }}"><i class="fa fa-pencil"></i></a>
-
                                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </div>
                                     </form>

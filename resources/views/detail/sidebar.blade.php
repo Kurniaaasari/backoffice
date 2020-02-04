@@ -39,7 +39,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('customer')}}" class="nav-link active">
+                <a href="{{URL::to('customer')}}" class="nav-link">
                 <i class="fa fa-user-circle-o"></i>
                   <p>Data Customer</p>
                 </a>
@@ -51,7 +51,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('order')}}" class="nav-link">
+                <a href="{{URL::to('order')}}" class="nav-link active">
                 <i class="fa fa-shopping-cart"></i>
                   <p>Data Order</p>
                 </a>

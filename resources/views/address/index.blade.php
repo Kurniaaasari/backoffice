@@ -51,9 +51,6 @@
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
-                                <th>ID</th>
-                                <th>NAME</th>
-                                <th>EMAIL</th>
                                 <th>ADDRESS</th>
                             </tr>
                         </thead>
@@ -61,9 +58,6 @@
                         
                             @foreach($data as $row)
                             <tr>
-                                <td>{{ $row->id_address}}</td>
-                                <td>{{ $row->name}}</td>
-                                <td>{{ $row->email}}</td>
                                 <td>{{ $row->address}}</td> 
                             </tr>
                             @endforeach

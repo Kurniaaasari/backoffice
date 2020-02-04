@@ -1,37 +1,10 @@
 @extends('customer/customer')
 @section('content')
 
-<style> 
- .table{ 
-                    width: 100%;
-                    margin-top: 10px;
-                    border-collapse: collapse;
-                } 
-               .table,.table th, .table td{
-                    border: 1px solid #ddd;
-                    /* border: 1px solid black; */
-                    padding: 8px;
-                    /* border: 1px solid #696969; */
-                    /* padding: 10px; */
-                    font-family: arial;
-                    color: #000000;
-                } 
-                .table th{
-                    /* width:100%; */
-                    font-size: 14px;
-                    background: #778899;
-                }
-                 .table td{ 
-                    /* width:100%; */
-                    background: #F8F8FA;
-                    padding: 10px 10px;
-                    font-size: 15px;
-                }
-              
- </style>            
+         
 <!-- <div class="row"> -->
-    <div class="col-20">
-        <div class="card1">
+    <div class="col-12 table-responsive">
+        <div class="card">
             <div class="card-header">
             <div>
             <a href="{{ url('/customer/create') }}" class="btn btn-dark btn-sm float-left">Add Customer</a>
@@ -52,8 +25,8 @@
                 {{ Session::get('message') }}
             </div>
             @endif
-            <div class="row1">
-                <div class="col-md-20">
+            <div class="row">
+                <div class="col-md-12">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
@@ -73,7 +46,13 @@
                             <td class="text-center">{{ $customer['id_customer'] }}</td>
                                 <td>{{ $customer['name'] }}</td>
                                 <td>{{ $customer['address'] }}<br>
-                                <a class="btn-sm btn-success" href=" "><font size="2px">Other Address</font></a></td>
+                                    <form method="POST" action="{{ URL::to('address/'.$customer['id_customer']) }}">
+                                        {{ csrf_field() }}
+                                        <div class="btn-group">
+                                            <a class="btn-sm btn-success" href="{{ URL::to('customer/address/'.$customer['id_customer']) }}"><font size="2px">Other Address</font></a>
+                                        </div>
+                                    </form>
+                                </td>
                                 <td>{{ $customer['no_phone'] }}</td>
                                 <td>{{ $customer['email'] }}</td>
                                 <td>{{ $customer['password'] }}</td>

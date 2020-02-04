@@ -18,12 +18,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 //route sidebar
 Route::resource('product','ProductController');
 Route::resource('customer','CustomerController');
+Route::get('customer/address/{id_customer}','CustomerController@address');
 Route::resource('order','OrderController');
 Route::resource('payment','PaymentController');
 Route::get('/search','CustomerController@search');
 Auth::routes();
 Route::get('/wishlist','WishlistController@index');
 Route::resource('address','AddressController');
+Route::resource('detail','DetailController');
 Auth::routes();
 
 

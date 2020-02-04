@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Redirect;
 use Session;
+use App\Customer;
 
 class CustomerController extends Controller
 {
@@ -197,6 +198,21 @@ class CustomerController extends Controller
         $q = DB::table('customer')->where('name','like','%'.$search.'%')->paginate(5);
         return view('search',['search'=>$q]);
    
-}
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function address($id_customer)
+    {
+        //
+        $data=Customer::select('address.address')
+                ->join('address','address.id_customer', '=','customer.id_customer')
+                ->where('customer.id_customer',$id_customer)
+                ->get();
+        return view('address.index', compact('data'));
+    }
       
 }

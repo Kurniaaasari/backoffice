@@ -33,6 +33,7 @@ class CreateProductTable extends Migration
             $table->string('code_product');
             $table->integer('stock');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

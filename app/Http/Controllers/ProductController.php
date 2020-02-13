@@ -1,18 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Product;
 use Illuminate\Http\Request;
+use Google\Cloud\Firestore\FirestoreClient;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
-<<<<<<< HEAD
-use App\Transformers\ProductTransformer;
-use App\Transformers\Status;
-use Google\Cloud\Firestore\FirestoreClient;
-use Auth;
-use App\Product;
-=======
->>>>>>> master
 use Redirect;
 use Session;
 
@@ -63,12 +56,7 @@ class ProductController extends Controller
             'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
             'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
             'name_product'=>'required',
-<<<<<<< HEAD
-            'code_product'=>'required',
-            'category'=>'required',
-=======
             'description'=>'required',
->>>>>>> master
             'material'=>'required',
             'finish'=>'required',
             'width'=>'required',
@@ -119,12 +107,8 @@ class ProductController extends Controller
             $image2=$request->file('image2File')->store('productImages','public');
             $image3=$request->file('image3File')->store('productImages','public');
              
-<<<<<<< HEAD
-            $product=new Product;
-=======
             $product=new \App\Product;
  
->>>>>>> master
             $product->image1=$image1;
             $product->image2=$image2;
             $product->image3=$image3;
@@ -138,37 +122,6 @@ class ProductController extends Controller
             $product->detail1=Input::get('detail1');
             $product->detail2=Input::get('detail2');
             $product->detail3=Input::get('detail3');
-<<<<<<< HEAD
-            $product->description=Input::get('description');
-            
-
-            //insert product to firestore
-            $db = new FirestoreClient([
-                'projectId' => 'cgmarketplace-a8727'
-            ]);
-            $docRef = $db->collection('Produk')->document(Input::get('code_product'));
-            $docRef->set([
-                'category' => Input::get('category'),
-                'code'=>Input::get('code'),
-                'dense' => Input::get('dense'),
-                'desc' => Input::get('description'),
-                'details1' => Input::get('detail1'),
-                'details2' => Input::get('detail2'),
-                'details3' => Input::get('detail3'),
-                'finish' => Input::get('finish'),
-                'height' => Input::get('height'),
-                'image1' => $image1,
-                'image2' => $image2,
-                'image3' => $image3,
-                'material' => Input::get('material'),
-                'name' => Input::get('name_product'),
-                'price' => (int) Input::get('price'),
-                'stock' => (int) Input::get('stock'),
-                'width' => Input::get('width')
-            ]);
-            //End of Insert Produt to firestore    
-            $product->save();    
-=======
             $product->price=Input::get('price');
             $product->category=Input::get('category');
             $product->code_product=Input::get('code_product');
@@ -176,7 +129,6 @@ class ProductController extends Controller
            
             $product->save();
  
->>>>>>> master
             Session::flash('message','Product Stored');
  
             return Redirect::to('product');
@@ -270,25 +222,6 @@ class ProductController extends Controller
                 ->withErrors($validator);
     
             }
-<<<<<<< HEAD
-            if ($request->has('image1File')) 
-            {
-                $image1=$request->file('image1File')->store('productImages','public');
-            }
-
-            if ($request->has('image2File')) 
-            {
-                $image2=$request->file('image2File')->store('productImages','public');
-            }
-
-            if ($request->has('image3File')) 
-            {
-                $image3=$request->file('image3File')->store('productImages','public');
-            }
-    
-                $product=Product::find($id_product);
-    
-=======
                 
                  if ($request->has('image1File')) 
                  {
@@ -309,7 +242,6 @@ class ProductController extends Controller
     
                 $product=\App\Product::find($id_product);
                 
->>>>>>> master
                 if (isset($image1)) 
                 {
                      $product->image1=$image1;
@@ -363,11 +295,7 @@ class ProductController extends Controller
             ]);
 
                 $product->save();
-<<<<<<< HEAD
-                Session::flash('message','Data Updated');
-=======
                 Session::flash('message','Product Edited ');
->>>>>>> master
                 return Redirect::to('product');
             
     }
@@ -391,19 +319,11 @@ class ProductController extends Controller
         $db->collection('Produk')->document($code)->delete();
 
         $product->delete();
-<<<<<<< HEAD
-
-=======
->>>>>>> master
         Session::flash('message','Product Deleted');
         return Redirect::to('product');
     }
 
-<<<<<<< HEAD
-    public function search()
-=======
      public function search()
->>>>>>> master
     {
 
     $q = Input::get ( 'q' );
@@ -429,9 +349,5 @@ class ProductController extends Controller
         return view ('product/index')->withMessage('No Details found. Try to search again !');
     }
 
-<<<<<<< HEAD
-}
-=======
 }
     
->>>>>>> master

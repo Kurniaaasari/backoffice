@@ -10,7 +10,7 @@ use App\Order;
 use Redirect;
 use Session;
 use DB;
-use App\Order;
+
 
 class OrderController extends Controller
 {
@@ -28,28 +28,28 @@ class OrderController extends Controller
               ->get();
 
             //ambil data orders
-            $db = new FirestoreClient([
-                'projectId' => 'cgmarketplace-a8727'
-            ]);
-                $docRef = $db->collection('Orders');
-                $query = $docRef->where('flex', '=', true); //ini buat indeks udah diambil belum
-                $documents = $query->documents();
-                foreach ($documents as $document) {
-                if ($document->exists()) {
-                printf('Document data for document %s:' . PHP_EOL, $document->id());
-                $data = $document->data();
-                $totalPayment = $data['totalPayment'];
-                $totalPayment = $data['totalPayment'];
-                $id = $document->id();
-                //terus flex diubah ke false biar ga ke ambil lagi
-                $updateRef = $db->collection('Orders')->document($id);
-                $updateRef->update([
-                ['path' => 'flex', 'value' => false]
-                ]);
-        }
-    }
+            // $db = new FirestoreClient([
+            //     'projectId' => 'cgmarketplace-a8727'
+            // ]);
+            //     $docRef = $db->collection('Orders');
+            //     $query = $docRef->where('flex', '=', true); //ini buat indeks udah diambil belum
+            //     $documents = $query->documents();
+            //     foreach ($documents as $document) {
+            //     if ($document->exists()) {
+            //     printf('Document data for document %s:' . PHP_EOL, $document->id());
+            //     $data = $document->data();
+            //     $totalPayment = $data['totalPayment'];
+            //     $totalPayment = $data['totalPayment'];
+            //     $id = $document->id();
+            //     //terus flex diubah ke false biar ga ke ambil lagi
+            //     $updateRef = $db->collection('Orders')->document($id);
+            //     $updateRef->update([
+            //     ['path' => 'flex', 'value' => false]
+            //     ]);
+    //     }
+    // }
 
-        return view('order.index', compact('order'));
+    //     return view('order.index', compact('order'));
     }
 
    
@@ -104,24 +104,24 @@ class OrderController extends Controller
         return view ('order/index')->withMessage('No Details found. Try to search again !');
     }
 
-    public function search()
-    {
+    // public function search()
+    // {
 
-    $q = Input::get ( 'q' );
-    $data = Order::join('customer', 'order.id_customer', '=', 'customer.id_customer' )
-                   ->join('address', 'order.id_address', '=', 'address.id_address' ) 
-                    ->where('total_payment','LIKE','%'.$q.'%')
-                    ->orWhere('date_order','LIKE','%'.$q.'%')
-                    ->orWhere('status','LIKE','%'.$q.'%')
-                    ->orwhere('name','LIKE','%'.$q.'%')
-                    ->orWhere('email','LIKE','%'.$q.'%')
-                    ->orWhere('no_phone','LIKE','%'.$q.'%')
-                    ->orWhere('address.address','LIKE','%'.$q.'%') 
-                    ->get();
-    if(count($data) > 0)
-        return view('order/index')
-                ->withData($data)->withQuery ( $q );
-    else 
-        return view ('order/index')->withMessage('No Details found. Try to search again !');
+    // $q = Input::get ( 'q' );
+    // $data = Order::join('customer', 'order.id_customer', '=', 'customer.id_customer' )
+    //                ->join('address', 'order.id_address', '=', 'address.id_address' ) 
+    //                 ->where('total_payment','LIKE','%'.$q.'%')
+    //                 ->orWhere('date_order','LIKE','%'.$q.'%')
+    //                 ->orWhere('status','LIKE','%'.$q.'%')
+    //                 ->orwhere('name','LIKE','%'.$q.'%')
+    //                 ->orWhere('email','LIKE','%'.$q.'%')
+    //                 ->orWhere('no_phone','LIKE','%'.$q.'%')
+    //                 ->orWhere('address.address','LIKE','%'.$q.'%') 
+    //                 ->get();
+    // if(count($data) > 0)
+    //     return view('order/index')
+    //             ->withData($data)->withQuery ( $q );
+    // else 
+    //     return view ('order/index')->withMessage('No Details found. Try to search again !');
     }
-}
+

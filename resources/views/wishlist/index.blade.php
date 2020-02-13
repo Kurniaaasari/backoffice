@@ -29,21 +29,6 @@
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
-<<<<<<< HEAD
-            <div class="container">
-                <form class="form-inline md-2 float-right" method="POST" action="{{url('wishlist/search')}}" role="search">
-                    <div class="input-group input-group-sm">
-                    {{ csrf_field() }}
-                      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
-                        <span class="input-group-btn">
-                            <button class="btn btn-navbar"><input type="submit" value="Search">
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-=======
->>>>>>> master
                 <div class="card-tools">
              </div>
          </div>

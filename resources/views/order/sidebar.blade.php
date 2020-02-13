@@ -46,19 +46,8 @@
                 </a>
               </li>
               <li class="nav-item">
-<<<<<<< HEAD
-                <a href="{{URL::to('users')}}" class="nav-link">
-                <i class="fa fa-credit-card"></i>
-                  <p>Data Admin</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{URL::to('wishlist')}}" class="nav-link">
-                <i class="fa fa-heart-o"></i>
-=======
                 <a href="{{URL::to('whistlist')}}" class="nav-link">
                 <i class="fa nav-icon"></i>
->>>>>>> master
                   <p>Wishlist</p>
                 </a>
               </li>
@@ -74,18 +63,7 @@
                   <p>Data Payment</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{URL::to('')}}" class="nav-link">
-                  <i class="fa nav-icon"></i>
-                  <p>Detail Order</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{URL::to('address')}}" class="nav-link">
-                  <i class="fa nav-icon"></i>
-                  <p>Address</p>
-                </a>
-              </li>
+              
             </ul> 
           </li>
          </ul>

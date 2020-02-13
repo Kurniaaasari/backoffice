@@ -9,7 +9,18 @@
       </li>
     </ul>
 
-    
+    <!-- SEARCH FORM -->
+   
+    <!-- <form class="form-inline ml-3">
+    <form action="/customer/search" method="GET">
+      <div class="input-group input-group-sm">  
+        <input type="text" name="search" placeholder="" value="{{ old('search') }}">
+	      <input type="submit" value="Search">
+          </button>
+      </div>
+      
+    </form>
+    </form> -->
 
     <!-- Logout-->
     <ul class="navbar-nav ml-auto">

@@ -25,10 +25,22 @@
                
 
                 </style>
-<div class="row">
+<!-- <div class="row"> -->
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
+            <div class="container">
+                <form class="form-inline md-2 float-right" method="POST" action="{{url('wishlist/search')}}" role="search">
+                    <div class="input-group input-group-sm">
+                    {{ csrf_field() }}
+                      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-navbar"><input type="submit" value="Search">
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
                 <div class="card-tools">
              </div>
          </div>
@@ -57,10 +69,12 @@
                             @foreach($data as $row)
                             <tr>
                                 <td>{{ $row->name}}</td>
-                                <td>{{ $row->name_product}}</td> 
+                                <td>{{ $row->name_product}}</td>
                                 <td>{{ $row->material}}</td>
                                 <td>{{ $row->finish}}</td>
-                                <td>$ {{ $row->price}}</td>
+                                <td>{{ $row->price}}</td>
+                                
+                            
                             </tr>
                             @endforeach
                             @else

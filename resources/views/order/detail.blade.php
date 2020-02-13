@@ -1,10 +1,10 @@
-@extends('payment/payment')
+@extends('order/order')
 @section('content')
 
 <style> 
 .table{
                     width: 100%;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     border-collapse: collapse;
                 }
                 .table th, .table td{
@@ -29,57 +29,45 @@
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
-            <div class="container">
-                <form class="form-inline md-2 float-right" method="POST" action="{{url('payment/search')}}" role="search">
-                    <div class="input-group input-group-sm">
-                    {{ csrf_field() }}
-                      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
-                        <span class="input-group-btn">
-                            <button class="btn btn-navbar"><input type="submit" value="Search">
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
+            <form class="form-inline md-2 float-right" method="get" action="{{url('customer/search')}}">
+            <input class="form-control mr-sm-2" type="text" name="q">
+            <button class="btn btn-navbar"><input type="submit" value="Search">
+            </form>
                 <div class="card-tools">
              </div>
          </div>
+         
          <div class="card-body">
             @if (Session::has('message'))
             <div id="alert-msg" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 {{ Session::get('message') }}
+                
             </div>
+            
             @endif
             <div class="row1">
                 <div class="col-md-20">
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
-                                <th>DATE ORDER</th>
-                                <th>TOTAL PAYMENT</th>
-                                <th>DATE PAYMENT</th>
-                                <th>PAYMENT CONFIRM</th>
+                                <th>NAME</th>
+                                <th>PRICE</th>
+                                <th>QUANTITY</th>
+                                <th>TOTAL</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            @if(isset($data))
-                            @foreach($data as $row)
+                        
+                            @foreach($detail as $detail)
                             <tr>
-                                <td>{{ $row->date_order}}</td>
-                                <td>$ {{ $row->total_payment}}</td>
-                                <td>{{ $row->created_at}}</td>
-                                <td>{{ $row->payment_confirm}}</td>
+                                <td>{{ $detail->name_product}}</td>
+                                <td>{{ $detail->price}}</td>
+                                <td>{{ $detail->quantity}}</td>
+                                <td>{{ $detail->total_payment}}</td> 
                             </tr>
                             @endforeach
-                            @else
-                             <tr>
-                                 <td colspan="5">
-                                     {{$message}} 
-                                 </td>
-                             </tr>
-                            @endif
+                            
                         </tbody>
                     </table>
                 </div>

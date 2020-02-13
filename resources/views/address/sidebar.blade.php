@@ -1,11 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{URL::to('admin')}}" class="brand-link">
-<<<<<<< HEAD
       <img src="{{asset('lte/dist/img/CG_Logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-=======
-      <img src="{{ asset ('lte/dist/img/CG_Logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
->>>>>>> master
            style="opacity: .8">
       <span class="brand-text font-weight-light">Christopher Guy</span>
     </a>
@@ -15,11 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-<<<<<<< HEAD
           <img src="{{asset('lte/dist/img/profile.png')}}" class="img-circle elevation-2" alt="User Image">
-=======
-          <img src="{{ asset ('lte/dist/img/profile.png')}}" class="img-circle elevation-2" alt="User Image">
->>>>>>> master
         </div>
         <div class="info">
           <a href="{{URL::to('admin')}}" class="d-block">Admin</a>

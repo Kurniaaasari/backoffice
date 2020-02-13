@@ -27,27 +27,26 @@ class OrderController extends Controller
               ->get();
 
             //ambil data orders
-    //         $db = new FirestoreClient([
-    //             'projectId' => 'cgmarketplace-a8727'
-    //         ]);
-    //             $docRef = $db->collection('Orders');
-    //             $query = $docRef->where('flex', '=', true); //ini buat indeks udah diambil belum
-    //             $documents = $query->documents();
-    //             foreach ($documents as $document) {
-    //             if ($document->exists()) {
-    //             printf('Document data for document %s:' . PHP_EOL, $document->id());
-    //             $data = $document->data();
-    //             $totalPayment = $data['totalPayment'];
-    //             $totalPayment = $data['totalPayment'];
-    //             $id = $document->id();
-    //             //terus flex diubah ke false biar ga ke ambil lagi
-    //             $updateRef = $db->collection('Orders')->document($id);
-    //             $updateRef->update([
-    //             ['path' => 'flex', 'value' => false]
-    //             ]);
-    //     }
-    // }
-
+            $db = new FirestoreClient([
+                'projectId' => 'cgmarketplace-a8727'
+            ]);
+                $docRef = $db->collection('Orders');
+                $query = $docRef->where('flex', '=', true); //ini buat indeks udah diambil belum
+                $documents = $query->documents();
+                    foreach ($documents as $document) {
+                    if ($document->exists()) {
+                printf('Document data for document %s:' . PHP_EOL, $document->id());
+                $data = $document->data();
+                $document = $data['totalOrder'];
+                
+                $id = $document->id();
+                //terus flex diubah ke false biar ga ke ambil lagi
+                $updateRef = $db->collection('Orders')->document($id);
+                $updateRef->update([
+                ['path' => 'flex', 'value' => false]
+                ]);
+        }
+    }
         return view('order.index', compact('order'));
     }
 
@@ -66,7 +65,6 @@ class OrderController extends Controller
                 ->join('address','order.id_address','=', 'address.id_address')
                 ->where('order.id_order',$id_order)
                 ->first();
-
         return view('detail.index', compact('detail','customer'));        
     }
 

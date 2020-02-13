@@ -13,9 +13,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
-                                        <td>{{ $address->default_address}}</td>
-                                    </tr>
                                     @foreach($data as $data)
                                     <tr class="text-center">
                                         <td>{{ $data->address}}</td>

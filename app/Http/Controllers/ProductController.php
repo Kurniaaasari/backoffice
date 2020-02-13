@@ -107,15 +107,15 @@ class ProductController extends Controller
             $image2=$request->file('image2File')->store('productImages','public');
             $image3=$request->file('image3File')->store('productImages','public');
              
-            $product=new \App\Product;
+            $product=new Product;
  
             $product->image1=$image1;
             $product->image2=$image2;
             $product->image3=$image3;
             $product->name_product=Input::get('name_product');
-            $product->description=Input::get('description');
             $product->material=Input::get('material');
             $product->finish=Input::get('finish');
+            $product->description=Input::get('description');
             $product->width=Input::get('width');
             $product->height=Input::get('height');
             $product->dense=Input::get('dense');
@@ -126,15 +126,39 @@ class ProductController extends Controller
             $product->category=Input::get('category');
             $product->code_product=Input::get('code_product');
             $product->stock=Input::get('stock');
-           
+        
+            //insert product to firestore
+            $db = new FirestoreClient([
+                'projectId' => 'cgmarketplace-a8727'
+            ]);
+
+            $docRef = $db->collection('Produk')->document(Input::get('code_product'));
+            $docRef->set([
+                'category' => Input::get('category'),
+                'dense' => Input::get('dense'),
+                'desc' => Input::get('description'),
+                'details1' => Input::get('detail1'),
+                'details2' => Input::get('detail2'),
+                'details3' => Input::get('detail3'),
+                'finish' => Input::get('finish'),
+                'height' => Input::get('height'),
+                'image1' => $image1,
+                'image2' => $image2,
+                'image3' => $image3,
+                'material' => Input::get('material'),
+                'name' => Input::get('name_product'),
+                'price' => (int)Input::get('price'),
+                'stock' => (int) Input::get('stock'),
+                'width' => Input::get('width')
+            ]);
+
             $product->save();
- 
             Session::flash('message','Product Stored');
- 
             return Redirect::to('product');
         }
     }
-
+ 
+        
     /**
      * Display the specified resource.
      *
@@ -164,13 +188,6 @@ class ProductController extends Controller
         return view('product/edit')->with($d);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id_product)
     {
             //
@@ -238,9 +255,8 @@ class ProductController extends Controller
                      $image1=$request->file('image3File')->store('productImages','public');
                  }
                 
-            
     
-                $product=\App\Product::find($id_product);
+                $product=Product::find($id_product);
                 
                 if (isset($image1)) 
                 {
@@ -254,6 +270,7 @@ class ProductController extends Controller
                 {
                     $product->image3=$image3;
                 }
+
                 $product->name_product=Input::get('name_product');
                 $product->description=Input::get('description');
                 $product->material=Input::get('material');
@@ -278,7 +295,7 @@ class ProductController extends Controller
                 'category' => Input::get('category'),
                 'code' => Input::get('code'),
                 'dense' => Input::get('dense'),
-                'desc' => Input::get('description'),
+                'description' => Input::get('description'),
                 'details1' => Input::get('detail1'),
                 'details2' => Input::get('detail2'),
                 'details3' => Input::get('detail3'),
@@ -291,7 +308,7 @@ class ProductController extends Controller
                 'name' => Input::get('name_product'),
                 'price' => (int)Input::get('price'),
                 'stock' => (int) Input::get('stock'),
-            'width' => Input::get('width')
+                'width' => Input::get('width')
             ]);
 
                 $product->save();
@@ -300,12 +317,6 @@ class ProductController extends Controller
             
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id_product)
     {
         //
@@ -325,7 +336,6 @@ class ProductController extends Controller
 
      public function search()
     {
-
     $q = Input::get ( 'q' );
     $product = \App\Product::where('name_product','LIKE','%'.$q.'%')
                             ->orWhere('description','LIKE','%'.$q.'%')

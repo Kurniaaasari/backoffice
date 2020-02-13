@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use App\Wishlist;
 use Redirect;
 use Session;
 use DB;
@@ -53,7 +54,7 @@ class WishlistController extends Controller
     {
 
     $q = Input::get ( 'q' );
-    $data = Payment::join('product', 'product.id_product', '=', 'wishlist.id_product' )
+    $data = Wishlist::join('product', 'product.id_product', '=', 'wishlist.id_product' )
                     ->join('customer', 'customer.id_customer', '=', 'wishlist.id_customer' )
                     ->where('id_wishlist','LIKE','%'.$q.'%')
                     ->orWhere('customer.name','LIKE','%'.$q.'%')

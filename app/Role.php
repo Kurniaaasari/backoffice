@@ -6,12 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-<<<<<<< HEAD
-    //
-    protected $fillable = [
-        'name'
-    ];
-=======
    protected $fillable = [
         'name_roles'
     ];
@@ -20,5 +14,4 @@ class Role extends Model
     {
         return $this->belongsToMany(Permission::class);
     }
->>>>>>> master
 }

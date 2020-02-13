@@ -20,13 +20,8 @@ class CreateOrderTable extends Migration
             $table->integer('id_address')->unsigned();
             $table->foreign('id_address')->references('id_address')->on('address');
             $table->dateTime('date_order');
-<<<<<<< HEAD
             $table->float('total_payment', 8, 3);
             $table->enum('status',['New','Shipped','Delivered']);
-=======
-            $table->float('total_payment');
-            $table->string('status');
->>>>>>> master
             $table->timestamps();
         });
     }

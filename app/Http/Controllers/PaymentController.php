@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use App\Payment;
 use Redirect;
 use Session;
 use DB;
@@ -21,7 +22,7 @@ class PaymentController extends Controller
         //
         $data = DB::table('payment')
               ->join('order','order.id_order','=', 'payment.id_order')
-              ->select('payment.id_payment','payment.payment_confirm','payment.created_at','order.id_order')
+              ->select('payment.id_payment','payment.payment_confirm','payment.created_at','order.*')
               ->get();
         return view('payment.index', compact('data'));
     }

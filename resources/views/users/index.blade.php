@@ -90,9 +90,10 @@
                             @endforeach
                             @else
                              <tr>
-                                 <td>
+                             <td colspan="5">
                                      {{$message}} 
                                  </td>
+                                 
                              </tr>
                             @endif
                         </tbody>

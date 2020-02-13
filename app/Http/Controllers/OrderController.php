@@ -10,6 +10,7 @@ use App\Order;
 use Redirect;
 use Session;
 use DB;
+use App\Order;
 
 class OrderController extends Controller
 {
@@ -81,6 +82,27 @@ class OrderController extends Controller
 
 
 
+
+    public function search()
+    {
+
+    $q = Input::get ( 'q' );
+    $data = Order::join('customer', 'order.id_customer', '=', 'customer.id_customer' )
+                   ->join('address', 'order.id_address', '=', 'address.id_address' ) 
+                    ->where('total_payment','LIKE','%'.$q.'%')
+                    ->orWhere('date_order','LIKE','%'.$q.'%')
+                    ->orWhere('status','LIKE','%'.$q.'%')
+                    ->orwhere('name','LIKE','%'.$q.'%')
+                    ->orWhere('email','LIKE','%'.$q.'%')
+                    ->orWhere('no_phone','LIKE','%'.$q.'%')
+                    ->orWhere('address.address','LIKE','%'.$q.'%') 
+                    ->get();
+    if(count($data) > 0)
+        return view('order/index')
+                ->withData($data)->withQuery ( $q );
+    else 
+        return view ('order/index')->withMessage('No Details found. Try to search again !');
+    }
 
     public function search()
     {

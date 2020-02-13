@@ -13,5 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/product', 'Api\ProductController@initialize');
 
+=======
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+>>>>>>> master

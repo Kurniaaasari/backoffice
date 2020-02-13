@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+<<<<<<< HEAD
 use App\Transformers\ProductTransformer;
 use App\Transformers\Status;
 use Google\Cloud\Firestore\FirestoreClient;
 use Auth;
 use App\Product;
+=======
+>>>>>>> master
 use Redirect;
 use Session;
 
@@ -32,7 +35,6 @@ class ProductController extends Controller
         $product=Product::all();
         $data=['product'=>$product];
         return view('product/index')->with($data);
-        
         
     }
 
@@ -61,39 +63,45 @@ class ProductController extends Controller
             'image2File'=>'required|mimes:jpg,png,jpeg,JPG',
             'image3File'=>'required|mimes:jpg,png,jpeg,JPG',
             'name_product'=>'required',
+<<<<<<< HEAD
             'code_product'=>'required',
             'category'=>'required',
+=======
+            'description'=>'required',
+>>>>>>> master
             'material'=>'required',
             'finish'=>'required',
             'width'=>'required',
             'height'=>'required',
             'dense'=>'required',
-            'price'=>'required',
-            'stock'=>'required|integer',
-            'detail1'=>'required', 
+            'detail1'=>'required',
             'detail2'=>'required',
             'detail3'=>'required',
-            'description'=>'required',
+            'price'=>'required',
+            'category'=>'required',
+            'code_product'=>'required|integer',
+            'stock'=>'required|integer',
         ];
  
         $pesan=[
             'image1File.required'=>'Gambar Tidak Boleh Kosong',
             'image2File.required'=>'Gambar Tidak Boleh Kosong',
             'image3File.required'=>'Gambar Tidak Boleh Kosong',
-            'code_product.required'=>'Tidak Boleh Kosong',
             'name_product.required'=>'Nama Barang Tidak Boleh Kosong',
-            'category.required'=>'Tidak Boleh Kosong',
+            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
             'material.required'=>'Material Tidak Boleh Kosong',
             'finish.required'=>'Finish Tidak Boleh Kosong',
             'width.required'=>'Width Tidak Boleh Kosong',
             'height.required'=>'Height Tidak Boleh Kosong',
-            'price.required'=>'Harga Barang Tidak Boleh Kosong',
             'dense.required'=>'Dense Tidak Boleh Kosong',
-            'stock.required'=>'Tidak Boleh Kosong',
             'detail1.required'=>'Detail Tidak Boleh Kosong',
             'detail2.required'=>'Detail Tidak Boleh Kosong',
             'detail3.required'=>'Detail Tidak Boleh Kosong',
-            'description.required'=>'Deskripsi Barang Tidak Boleh Kosong',
+            'price.required'=>'Harga Barang Tidak Boleh Kosong',
+            'category.required'=>'Tidak Boleh Kosong',
+            'code_product.required'=>'Tidak Boleh Kosong',
+            'stock.required'=>'Tidak Boleh Kosong',
+
         ];
  
         $validator=Validator::make(Input::all(),$rules,$pesan);
@@ -111,23 +119,26 @@ class ProductController extends Controller
             $image2=$request->file('image2File')->store('productImages','public');
             $image3=$request->file('image3File')->store('productImages','public');
              
+<<<<<<< HEAD
             $product=new Product;
+=======
+            $product=new \App\Product;
+ 
+>>>>>>> master
             $product->image1=$image1;
             $product->image2=$image2;
             $product->image3=$image3;
-            $product->code_product=Input::get('code_product');
             $product->name_product=Input::get('name_product');
-            $product->category=Input::get('category');
+            $product->description=Input::get('description');
             $product->material=Input::get('material');
             $product->finish=Input::get('finish');
             $product->width=Input::get('width');
             $product->height=Input::get('height');
             $product->dense=Input::get('dense');
-            $product->price=Input::get('price');
-            $product->stock=Input::get('stock');
             $product->detail1=Input::get('detail1');
             $product->detail2=Input::get('detail2');
             $product->detail3=Input::get('detail3');
+<<<<<<< HEAD
             $product->description=Input::get('description');
             
 
@@ -157,6 +168,15 @@ class ProductController extends Controller
             ]);
             //End of Insert Produt to firestore    
             $product->save();    
+=======
+            $product->price=Input::get('price');
+            $product->category=Input::get('category');
+            $product->code_product=Input::get('code_product');
+            $product->stock=Input::get('stock');
+           
+            $product->save();
+ 
+>>>>>>> master
             Session::flash('message','Product Stored');
  
             return Redirect::to('product');
@@ -250,6 +270,7 @@ class ProductController extends Controller
                 ->withErrors($validator);
     
             }
+<<<<<<< HEAD
             if ($request->has('image1File')) 
             {
                 $image1=$request->file('image1File')->store('productImages','public');
@@ -267,6 +288,28 @@ class ProductController extends Controller
     
                 $product=Product::find($id_product);
     
+=======
+                
+                 if ($request->has('image1File')) 
+                 {
+                     $image1=$request->file('image1File')->store('productImages','public');
+                 }
+
+                 if ($request->has('image2File')) 
+                 {
+                     $image1=$request->file('image2File')->store('productImages','public');
+                 }
+
+                 if ($request->has('image3File')) 
+                 {
+                     $image1=$request->file('image3File')->store('productImages','public');
+                 }
+                
+            
+    
+                $product=\App\Product::find($id_product);
+                
+>>>>>>> master
                 if (isset($image1)) 
                 {
                      $product->image1=$image1;
@@ -320,7 +363,11 @@ class ProductController extends Controller
             ]);
 
                 $product->save();
+<<<<<<< HEAD
                 Session::flash('message','Data Updated');
+=======
+                Session::flash('message','Product Edited ');
+>>>>>>> master
                 return Redirect::to('product');
             
     }
@@ -344,12 +391,19 @@ class ProductController extends Controller
         $db->collection('Produk')->document($code)->delete();
 
         $product->delete();
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         Session::flash('message','Product Deleted');
         return Redirect::to('product');
     }
 
+<<<<<<< HEAD
     public function search()
+=======
+     public function search()
+>>>>>>> master
     {
 
     $q = Input::get ( 'q' );
@@ -375,4 +429,9 @@ class ProductController extends Controller
         return view ('product/index')->withMessage('No Details found. Try to search again !');
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+    
+>>>>>>> master

@@ -25,10 +25,11 @@
                
 
                 </style>
-<!-- <div class="row"> -->
+<div class="row">
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
+<<<<<<< HEAD
             <div class="container">
                 <form class="form-inline md-2 float-right" method="POST" action="{{url('wishlist/search')}}" role="search">
                     <div class="input-group input-group-sm">
@@ -41,6 +42,8 @@
                     </div>
                 </form>
             </div>
+=======
+>>>>>>> master
                 <div class="card-tools">
              </div>
          </div>
@@ -69,12 +72,10 @@
                             @foreach($data as $row)
                             <tr>
                                 <td>{{ $row->name}}</td>
-                                <td>{{ $row->name_product}}</td>
+                                <td>{{ $row->name_product}}</td> 
                                 <td>{{ $row->material}}</td>
                                 <td>{{ $row->finish}}</td>
-                                <td>{{ $row->price}}</td>
-                                
-                            
+                                <td>$ {{ $row->price}}</td>
                             </tr>
                             @endforeach
                             @else

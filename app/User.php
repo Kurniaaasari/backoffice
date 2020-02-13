@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'id_users';
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'id_roles'
     ];
 
     /**
@@ -29,9 +29,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+<<<<<<< HEAD
 
     public function role() 
     {
         return $this->belongsTo(Role::class);
     }
+=======
+    public function role() {
+    return $this->belongsTo(Role::class);
+}
+
+public function hasPermission($permission) {
+    return $this->role->permissions()->where('name', $permission)->first() ?: false;
+}
+>>>>>>> master
 }

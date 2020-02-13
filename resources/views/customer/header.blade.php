@@ -10,17 +10,16 @@
     </ul>
 
     <!-- SEARCH FORM -->
-   
-    <!-- <form class="form-inline ml-3">
-    <form action="/customer/search" method="GET">
-      <div class="input-group input-group-sm">  
-        <input type="text" name="search" placeholder="" value="{{ old('search') }}">
-	      <input type="submit" value="Search">
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fa fa-search"></i>
           </button>
+        </div>
       </div>
-      
     </form>
-    </form> -->
 
     <!-- Logout-->
     <ul class="navbar-nav ml-auto">
@@ -32,6 +31,7 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+<<<<<<< HEAD
 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li>
@@ -41,6 +41,17 @@
                                             Logout
                                         </a>
 
+=======
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+>>>>>>> master
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>

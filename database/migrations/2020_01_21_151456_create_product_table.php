@@ -18,20 +18,30 @@ class CreateProductTable extends Migration
             $table->text('image1');
             $table->text('image2');
             $table->text('image3');
+            $table->string('code_product');
             $table->string('name_product');
-            $table->text('description');
+            $table->enum('category',['mirrors','cabinets','seating','tables','bedroom']);
             $table->string('width');
             $table->string('height');
             $table->string('dense');
             $table->string('material');
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             $table->string('finish');
             $table->float('price', 8, 3);
+            $table->integer('stock');
             $table->string('detail1');
             $table->string('detail2');
             $table->string('detail3');
+<<<<<<< HEAD
             $table->enum('category',['Mirrors','Cabinets','Seating','Tables','Bedroom']);
             $table->string('code_product');
             $table->integer('stock');
+=======
+            $table->text('description');
+>>>>>>> master
             $table->timestamps();
             $table->softDeletes();
         });

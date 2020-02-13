@@ -25,10 +25,11 @@
                
 
                 </style>
-<!-- <div class="row"> -->
+<div class="row">
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
+<<<<<<< HEAD
             <div class="container">
                 <form class="form-inline md-2 float-right" method="POST" action="{{url('payment/search')}}" role="search">
                     <div class="input-group input-group-sm">
@@ -41,6 +42,8 @@
                     </div>
                 </form>
             </div>
+=======
+>>>>>>> master
                 <div class="card-tools">
              </div>
          </div>
@@ -56,10 +59,17 @@
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
+<<<<<<< HEAD
                                 <th>DATE ORDER</th>
                                 <th>TOTAL PAYMENT</th>
                                 <th>DATE PAYMENT</th>
                                 <th>PAYMENT CONFIRM</th>
+=======
+                                <th>ID</th>
+                                <th>PAYMENT CONFIRM</th>
+                                <th>DATE PAYMENT</th>
+                                <th>ID ORDER</th>
+>>>>>>> master
                             </tr>
                         </thead>
                         <tbody>
@@ -67,10 +77,17 @@
                             @if(isset($data))
                             @foreach($data as $row)
                             <tr>
+<<<<<<< HEAD
                                 <td>{{ $row->date_order}}</td>
                                 <td>$ {{ $row->total_payment}}</td>
                                 <td>{{ $row->created_at}}</td>
                                 <td>{{ $row->payment_confirm}}</td>
+=======
+                                <td>{{ $row->id_payment}}</td>
+                                <td class="text-center"><img src="{{ asset('storage/'.$payment['payment_confirm']) }}" width="100"/></td>
+                                <td>{{ $row->created_at}}</td> 
+                                <td>{{ $row->id_order}}</td>
+>>>>>>> master
                             </tr>
                             @endforeach
                             @else

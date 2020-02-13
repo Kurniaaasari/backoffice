@@ -1,4 +1,4 @@
-@extends('address/address')
+@extends('customer/customer')
 @section('content')
 <div class="row">
     <div class="col-8"><br>

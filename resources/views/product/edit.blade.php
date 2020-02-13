@@ -44,23 +44,70 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+<<<<<<< HEAD
                         <div class="form-group">
                             {{ Form::label('category', 'CATEGORY') }}
                             {{ Form::select('category', ['mirrors'=>'Mirrors','seating'=>'Seating','tables'=>'Tables','cabinet'=>'Cabinets','bedroom'=>'Bedroom'], null, ['class'=>'form-control']) }}  
+=======
+                    
+                        <div class="form-group">
+                        {{ Form::label('code_product', 'CODE') }}
+                        {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
+>>>>>>> master
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             {{ Form::label('code_product', 'CODE') }}
                             {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
+=======
+                        {{ Form::label('category', 'CATEGORY') }}
+                        {{ Form::select('category', ['mirrors'=>'Mirrors','seating'=>'Seating','tables'=>'Tables','cabinet'=>'Cabinets','bedroom'=>'Bedroom'], null,
+                        ['class'=>'form-control']) }}
+                             
+                        </div>
+                        <div class="form-group">
+                        {{ Form::label('material', 'MATERIAL') }}
+                        {{ Form::text('material', $product['material'], ['class'=>'form-control', 'placeholder'=>'Input Material of Product']) }}
+>>>>>>> master
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+<<<<<<< HEAD
                             {{ Form::label('material', 'MATERIAL') }}
                             {{ Form::text('material', $product['material'], ['class'=>'form-control', 'placeholder'=>'Input Material of Product']) }}   
                         </div>
                         <div class="form-group">
                             {{ Form::label('finish', 'FINISH') }}
                             {{ Form::text('finish',$product['finish'],['class'=>'form-control','placeholder'=>'Input Finish of Product']) }}        
+=======
+                        {{ Form::label('finish', 'FINISH') }}
+                        {{ Form::select('finish', ['tabac'=>'Tabac', 'black'=>'Black'], null,
+                        ['class'=>'form-control']) }} 
+                        </div>
+                        <div class="form-group">
+                        {{ Form::label('width', 'WIDTH') }}
+                        {{ Form::text('width',$product['width'], ['class'=>'form-control', 'placeholder'=>'Input Width']) }}
+>>>>>>> master
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+<<<<<<< HEAD
+                        {{ Form::label('price', 'PRICE') }}
+                        {{ Form::text('price', $product['price'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
+                        </div>
+                        <div class="form-group">
+                        {{ Form::label('stock', 'STOCK') }}
+                        {{ Form::text('stock',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
+=======
+                        {{ Form::label('height', 'HEIGHT') }}
+                        {{ Form::text('height',$product['height'], ['class'=>'form-control', 'placeholder'=>'Input Height']) }}
+                        </div>
+                        <div class="form-group">
+                        {{ Form::label('dense', 'DENSE') }}
+                        {{ Form::text('dense',$product['dense'], ['class'=>'form-control', 'placeholder'=>'Input Dense']) }}
+>>>>>>> master
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -76,33 +123,24 @@
                     <div class="col-md-6">
                         <div class="form-group">
                         {{ Form::label('detail1', 'DETAIL 1') }}
-                        {{ Form::text('detail1',$product['detail1'], ['class'=>'form-control', 'placeholder'=>'Input Detail']) }}
+                        {{ Form::textarea('detail1',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Detail','rows'=>5]) }}
                         </div>
                         <div class="form-group">
                         {{ Form::label('detail2', 'DETAIL 2') }}
-                        {{ Form::text('detail2',$product['detail2'], ['class'=>'form-control', 'placeholder'=>'Input Detail']) }}
+                        {{ Form::textarea('detail2',$product['detail2'], ['class'=>'form-control', 'placeholder'=>'Input Detail','rows'=>5]) }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                         {{ Form::label('detail3', 'DETAIL 3') }}
-                        {{ Form::text('detail3',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Detail']) }}
+                        {{ Form::textarea('detail3',$product['detail3'], ['class'=>'form-control', 'placeholder'=>'Input Detail','rows'=>5]) }}
                         </div>
                         <div class="form-group">
-                        {{ Form::label('width', 'WIDTH') }}
-                        {{ Form::text('width',$product['width'], ['class'=>'form-control', 'placeholder'=>'Input Width']) }}
+                        {{ Form::label('description', 'DESCRIPTION') }}
+                        {{ Form::textarea('description',$product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                        {{ Form::label('height', 'HEIGHT') }}
-                        {{ Form::text('height',$product['height'], ['class'=>'form-control', 'placeholder'=>'Input Height']) }}
-                        </div>
-                        <div class="form-group">
-                        {{ Form::label('dense', 'DENSE') }}
-                        {{ Form::text('dense',$product['dense'], ['class'=>'form-control', 'placeholder'=>'Input Dense']) }}
-                        </div>
-                    </div>
+<<<<<<< HEAD
                     <div class="col-md-6"> 
                         <div class="form-group">
                         {{ Form::label('description', 'DESCRIPTION') }}
@@ -112,10 +150,13 @@
                 </div>
             </div>
         </div>
+=======
+>>>>>>> master
             <div class="card-footer">
                 <a href="{{ URL::to('product') }}" class="btn btn-outline-secondary">Back</a>
                 {{ Form::submit('Save', ['class' => 'btn btn-secondary pull-right']) }}
             </div>
+        </div>
         </div>
         <!-- </form> -->
         {{ Form::close() }}

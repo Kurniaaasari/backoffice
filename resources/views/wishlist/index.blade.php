@@ -56,6 +56,7 @@
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
+                                <th>NO</th>
                                 <th>CUSTOMER NAME</th>
                                 <th>PRODUCT</th>
                                 <th>MATERIAL</th>
@@ -66,8 +67,11 @@
                         <tbody>
                         
                             @if(isset($data))
+                            <?php $no = 0 ;?>
                             @foreach($data as $row)
+                            <?php $no++ ;?>
                             <tr>
+                                <td class="text-center">{{ $no }}</td>
                                 <td>{{ $row->name}}</td>
                                 <td>{{ $row->name_product}}</td>
                                 <td>{{ $row->material}}</td>

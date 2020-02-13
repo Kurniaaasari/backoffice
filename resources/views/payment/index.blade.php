@@ -56,6 +56,7 @@
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
+                                <th>NO</th>
                                 <th>DATE ORDER</th>
                                 <th>TOTAL PAYMENT</th>
                                 <th>DATE PAYMENT</th>
@@ -65,8 +66,11 @@
                         <tbody>
 
                             @if(isset($data))
+                            <?php $no = 0 ;?>
                             @foreach($data as $row)
+                            <?php $no++ ;?>
                             <tr>
+                            <td class="text-center">{{ $no }}</td>
                                 <td>{{ $row->date_order}}</td>
                                 <td>$ {{ $row->total_payment}}</td>
                                 <td>{{ $row->created_at}}</td>

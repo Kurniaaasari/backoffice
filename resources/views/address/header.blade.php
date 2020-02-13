@@ -21,23 +21,32 @@
       </div>
     </form> -->
 
-    <!-- Logout-->
-    <ul class="navbar-nav ml-auto">
-   <li class="nav-item dropdown">
-     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" roles="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-       {{ Auth::user()->name }} <span class="caret"></span>
-     </a>
+     <!-- Logout-->
+     <ul class="navbar-nav ml-auto">
+   @guest
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-       <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-         document.getElementById('logout-form').submit();">
-           {{ __('Logout') }}
-         </a>
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-           @csrf
-         </form>
-     </div>
-   </li>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
    </ul>
    <!-- Logout-->
    

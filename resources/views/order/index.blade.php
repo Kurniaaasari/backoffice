@@ -22,19 +22,24 @@
                     padding: 10px 10px;
                     font-size: 15px;
                 }
-               
-
-                </style>
+</style>
 <!-- <div class="row"> -->
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
-            <form class="form-inline md-2 float-right" method="get" action="{{url('customer/search')}}">
-            <input class="form-control mr-sm-2" type="text" name="q">
-            <button class="btn btn-navbar"><input type="submit" value="Search">
-            </form>
-
-                <div class="card-tools">
+            <div class="container">
+                <form class="form-inline md-2 float-right" method="POST" action="{{url('order/search')}}" role="search">
+                    <div class="input-group input-group-sm">
+                    {{ csrf_field() }}
+            <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-navbar"><input type="submit" value="Search">
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="card-tools">
              </div>
          </div>
          <div class="card-body">
@@ -50,39 +55,48 @@
                     <thead class="thead-dark">
                       
                             <tr class="text-center">
-                                <th>ID</th>
+                                <th>NO</th>
                                 <th>NAME</th>
-                                <th>EMAIL</th>
+                                <!-- <th>EMAIL</th>
                                 <th>NUMBER PHONE</th>
-                                <th>ADDRESS</th>
-                                <th>TOTAL PAYMENT</th>
+                                <th>ADDRESS</th> -->
                                 <th>DATE ORDER</th>
-                                <th>DETAIL</th>
+                                <th>TOTAL PAYMENT</th>
                                 <th>STATUS</th>
+                                <th>DETAIL</th>
                             </tr>
                         </thead>
                         <tbody>
-                        
-                            @foreach($data as $row)
+                            @if(isset($order))
+                            <?php $no = 0 ;?>
+                            @foreach($order as $row)
+                            <?php $no++ ;?>
                             <tr>
-                                <td>{{ $row->id_order}}</td>
+                                <td class="text-center">{{ $no }}</td>
                                 <td>{{ $row->name}}</td>
-                                <td>{{ $row->email}}</td>
+                                <!-- <td>{{ $row->email}}</td>
                                 <td>{{ $row->no_phone}}</td> 
-                                <td>{{ $row->address}}</td> 
+                                <td>{{ $row->address}}</td>  --> 
+                                <td>{{ $row->date_order}}</td>
                                 <td>$ {{ $row->total_payment}}</td> 
-                                <td>{{ $row->date_order}}</td> 
+                                <td>{{ $row->status}} </td> 
                                 <td class="text-center">
+                                    <form method="POST" action="{{ URL::to('detail/'.$row->id_order) }}">
+                                        {{ csrf_field() }}
                                         <div class="btn-group">
-                                            <a class="btn-sm btn-secondary" href="detail"><font size="2px">Detail Order</font></a>
+                                            <a class="btn-sm btn-dark" href="{{ URL::to('order/detail/'.$row->id_order) }}"><font size="2px">Detail Order</font></a>
                                         </div>
                                     </form>
                                 </td>
-                                <td>{{ $row->status}} </td> 
-                                
                             </tr>
                             @endforeach
-                            
+                            @else
+                             <tr>
+                                 <td colspan="6">
+                                     {{$message}} 
+                                 </td>
+                             </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>

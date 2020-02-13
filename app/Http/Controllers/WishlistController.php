@@ -48,6 +48,26 @@ class WishlistController extends Controller
          //
          
      }
+
+     public function search()
+    {
+
+    $q = Input::get ( 'q' );
+    $data = Payment::join('product', 'product.id_product', '=', 'wishlist.id_product' )
+                    ->join('customer', 'customer.id_customer', '=', 'wishlist.id_customer' )
+                    ->where('id_wishlist','LIKE','%'.$q.'%')
+                    ->orWhere('customer.name','LIKE','%'.$q.'%')
+                    ->orWhere('name_product','LIKE','%'.$q.'%')
+                    ->orwhere('material','LIKE','%'.$q.'%')
+                    ->orWhere('finish','LIKE','%'.$q.'%')
+                    ->orWhere('product.price','LIKE','%'.$q.'%')
+                    ->get();
+    if(count($data) > 0)
+        return view('wishlist/index')
+                ->withData($data)->withQuery ( $q );
+    else 
+        return view ('wishlist/index')->withMessage('No Details found. Try to search again !');
+    }
 }
 
 //     /**

@@ -91,4 +91,22 @@ class PaymentController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+
+    $q = Input::get ( 'q' );
+    $data = Payment::join('order', 'order.id_order', '=', 'payment.id_order' )
+                    ->where('id_payment','LIKE','%'.$q.'%')
+                    ->orWhere('payment_confirm','LIKE','%'.$q.'%')
+                    ->orWhere('payment.created_at','LIKE','%'.$q.'%')
+                    ->orwhere('order.date_order','LIKE','%'.$q.'%')
+                    ->orWhere('total_payment','LIKE','%'.$q.'%')
+                    ->get();
+    if(count($data) > 0)
+        return view('payment/index')
+                ->withData($data)->withQuery ( $q );
+    else 
+        return view ('payment/index')->withMessage('No Details found. Try to search again !');
+    }
 }

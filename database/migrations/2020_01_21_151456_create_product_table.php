@@ -24,12 +24,12 @@ class CreateProductTable extends Migration
             $table->string('height');
             $table->string('dense');
             $table->string('material');
-            $table->enum('finish',['tabac','black']);
+            $table->string('finish');
             $table->float('price', 8, 3);
             $table->string('detail1');
             $table->string('detail2');
             $table->string('detail3');
-            $table->enum('category',['mirrors','cabinets','seating','tables','bedroom']);
+            $table->enum('category',['Mirrors','Cabinets','Seating','Tables','Bedroom']);
             $table->string('code_product');
             $table->integer('stock');
             $table->timestamps();

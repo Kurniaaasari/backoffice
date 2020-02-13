@@ -4,12 +4,12 @@ namespace App\Http\Controllers\API;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
+// use Auth;
 class ProductController extends Controller
 {
     public function index(Product $product){
         try{
-            $product =\App\Product::all();
+            $product =Product::all();
             if(!$product){
                 return response()->json([
                     'product'   =>array(), 

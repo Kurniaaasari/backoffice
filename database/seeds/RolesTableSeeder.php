@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class RolesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
-        $this->call(UsersTableSeeder::class);
-        $this->call(RolesTableSeeder::class);
+        //
+        App\Role::create(['name_roles' => 'admin']);
+
+		App\Role::create(['name_roles' => 'staff']);
     }
 }

@@ -91,4 +91,20 @@ class AddressController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        $q = Input::get ( 'q' );
+        $users = \App\Users::where('name','LIKE','%'.$q.'%')
+                            ->orWhere('email','LIKE','%'.$q.'%')
+                            ->orWhere('password','LIKE','%'.$q.'%')
+                            ->get();
+        if(count($users) > 0)
+            return view('users/index')
+                ->withUsers($users)
+                ->withQuery ( $q );
+        else 
+            return view ('users/index')
+                ->withMessage('No Details found. Try to search again !');
+    }
 }

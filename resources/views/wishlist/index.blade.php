@@ -29,10 +29,18 @@
     <div class="col-20">
         <div class="card1">
             <div class="card-header">
-            <form class="form-inline md-2 float-right" method="get" action="{{url('customer/search')}}">
-            <input class="form-control mr-sm-2" type="text" name="q">
-            <button class="btn btn-navbar"><input type="submit" value="Search">
-            </form>
+            <div class="container">
+                <form class="form-inline md-2 float-right" method="POST" action="{{url('wishlist/search')}}" role="search">
+                    <div class="input-group input-group-sm">
+                    {{ csrf_field() }}
+                      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{isset($query)?$query:""}}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-navbar"><input type="submit" value="Search">
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
                 <div class="card-tools">
              </div>
          </div>
@@ -48,7 +56,6 @@
                     <table class="table">
                         <thead class="thead-dark">
                             <tr class="text-center">
-                                <th>ID</th>
                                 <th>CUSTOMER NAME</th>
                                 <th>PRODUCT</th>
                                 <th>MATERIAL</th>
@@ -58,9 +65,9 @@
                         </thead>
                         <tbody>
                         
+                            @if(isset($data))
                             @foreach($data as $row)
                             <tr>
-                                <td>{{ $row->id_wishlist}}</td>
                                 <td>{{ $row->name}}</td>
                                 <td>{{ $row->name_product}}</td>
                                 <td>{{ $row->material}}</td>
@@ -70,7 +77,13 @@
                             
                             </tr>
                             @endforeach
-                            
+                            @else
+                             <tr>
+                                 <td colspan="6">
+                                     {{$message}} 
+                                 </td>
+                             </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>

@@ -58,7 +58,8 @@
                         
                             @foreach($data as $row)
                             <tr>
-                                <td>{{ $row->address}}</td> 
+                                <td>{{ $customer['address'] }}<br>
+                                    {{ $row->address}}</td> 
                             </tr>
                             @endforeach
                             

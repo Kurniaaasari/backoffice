@@ -45,6 +45,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{URL::to('users')}}" class="nav-link">
+                <i class="fa fa-credit-card"></i>
+                  <p>Data Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{URL::to('wishlist')}}" class="nav-link active">
                 <i class="fa fa-heart-o"></i>
                   <p>Wishlist</p>

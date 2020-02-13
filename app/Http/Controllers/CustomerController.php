@@ -192,12 +192,21 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
+    public function search()
     {
-        $search = $request->get('search');
-        $q = DB::table('customer')->where('name','like','%'.$search.'%')->paginate(5);
-        return view('search',['search'=>$q]);
-   
+        $q = Input::get ( 'q' );
+        $customer = \App\Customer::where('name','LIKE','%'.$q.'%')
+                            ->orWhere('no_phone','LIKE','%'.$q.'%')
+                            ->orWhere('email','LIKE','%'.$q.'%')
+                            ->orWhere('password','LIKE','%'.$q.'%')
+                            ->get();
+        if(count($customer) > 0)
+            return view('customer/index')
+                ->withCustomer($customer)
+                ->withQuery ( $q );
+        else 
+            return view ('customer/index')
+                ->withMessage('No Details found. Try to search again !');
     }
 
     /**
@@ -212,7 +221,11 @@ class CustomerController extends Controller
                 ->join('address','address.id_customer', '=','customer.id_customer')
                 ->where('customer.id_customer',$id_customer)
                 ->get();
-        return view('address.index', compact('data'));
+        $address=Customer::select('customer.*')
+                ->join('address','address.id_customer', '=','customer.id_customer')
+                ->where('customer.id_customer',$id_customer)
+                ->first();
+        return view('address.index', compact('data','address'));
     }
       
 }

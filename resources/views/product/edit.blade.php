@@ -14,12 +14,14 @@
                 </div>
                 @endif
                 <div class="row">
-                    <div class="col-md-12">
-                        <img src="{{ asset('storage/'.$product['image1'])}}" width="100%" height="200">
+                    <div class="col-md-4">
+                        <img src="{{ asset('storage/'.$product['image1'])}}" width="75%" height="100%">
                     </div>
-                        <img src="{{ asset('storage/'.$product['image2'])}}" width="100%" height="200">
+                    <div class="col-md-4">
+                        <img src="{{ asset('storage/'.$product['image2'])}}" width="75%" height="100%">
                     </div>
-                        <img src="{{ asset('storage/'.$product['image3'])}}" width="100%" height="200">
+                    <div class="col-md-4">
+                        <img src="{{ asset('storage/'.$product['image3'])}}" width="75%" height="100%">
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -42,45 +44,33 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <!-- <div class="form-group">
-                        {{ Form::label('dimension', 'DIMENSION') }}
-                        {{ Form::text('dimension', $product['dimension'], ['class'=>'form-control', 'placeholder'=>'Input Dimension of Product']) }}      
-                        </div> -->
                         <div class="form-group">
-                        {{ Form::label('material', 'MATERIAL') }}
-                        {{ Form::text('material', $product['material'], ['class'=>'form-control', 'placeholder'=>'Input Material of Product']) }}   
+                            {{ Form::label('category', 'CATEGORY') }}
+                            {{ Form::select('category', ['mirrors'=>'Mirrors','seating'=>'Seating','tables'=>'Tables','cabinet'=>'Cabinets','bedroom'=>'Bedroom'], null, ['class'=>'form-control']) }}  
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label('code_product', 'CODE') }}
+                            {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                        {{ Form::label('finish', 'FINISH') }}
-                        {{ Form::select('finish', ['tabac'=>'Tabac', 'black'=>'Black'], null,
-                        ['class'=>'form-control']) }}        
+                            {{ Form::label('material', 'MATERIAL') }}
+                            {{ Form::text('material', $product['material'], ['class'=>'form-control', 'placeholder'=>'Input Material of Product']) }}   
                         </div>
+                        <div class="form-group">
+                            {{ Form::label('finish', 'FINISH') }}
+                            {{ Form::text('finish',$product['finish'],['class'=>'form-control','placeholder'=>'Input Finish of Product']) }}        
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
                         {{ Form::label('price', 'PRICE') }}
                         {{ Form::text('price', $product['price'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                        {{ Form::label('category', 'CATEGORY') }}
-                        {{ Form::select('category', ['mirrors'=>'Mirrors','seating'=>'Seating','tables'=>'Tables','cabinet'=>'Cabinets','bedroom'=>'Bedroom'], null,
-                        ['class'=>'form-control']) }}  
-                        </div>
-                        <div class="form-group">
-                        {{ Form::label('code_product', 'CODE') }}
-                        {{ Form::text('code_product', $product['code'], ['class'=>'form-control', 'placeholder'=>'Input Code of Product' ]) }}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
                         {{ Form::label('stock', 'STOCK') }}
                         {{ Form::text('stock',$product['stock'], ['class'=>'form-control', 'placeholder'=>'Input Price of Product']) }}
-                        </div>
-                        <div class="form-group">
-                        {{ Form::label('description', 'DESCRIPTION') }}
-                        {{ Form::textarea('description',$product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -113,11 +103,17 @@
                         {{ Form::text('dense',$product['dense'], ['class'=>'form-control', 'placeholder'=>'Input Dense']) }}
                         </div>
                     </div>
+                    <div class="col-md-6"> 
+                        <div class="form-group">
+                        {{ Form::label('description', 'DESCRIPTION') }}
+                        {{ Form::textarea('description',$product['description'], ['class'=>'form-control', 'placeholder'=>'Enter Description', 'rows'=>5]) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
             <div class="card-footer">
-                <a href="{{ URL::to('product') }}" class="btn btn-outline-info">Back</a>
+                <a href="{{ URL::to('product') }}" class="btn btn-outline-secondary">Back</a>
                 {{ Form::submit('Save', ['class' => 'btn btn-secondary pull-right']) }}
             </div>
         </div>

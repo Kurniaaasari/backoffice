@@ -57,8 +57,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     {{ Form::label('finish', 'FINISH') }}
-                                    {{ Form::select('finish', ['tabac'=>'Tabac', 'black'=>'Black'], null,
-                                        ['class'=>'form-control']) }}        
+                                    {{ Form::text('finish','',
+                                        ['class'=>'form-control','placeholder'=>'Input Finish of Product']) }}        
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('price', 'PRICE') }}
